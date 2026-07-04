@@ -883,7 +883,12 @@
         }
         updateCartCount();
 
-        // Contact Form Handler
+        // ============================================
+        // CONTACT FORM - Send to Backend API
+        // ============================================
+
+        const API_BASE_URL = 'https://olivintra-backend.onrender.com';
+
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -898,25 +903,47 @@
                 return;
             }
 
-            // Store in localStorage for demo
-            const messages = JSON.parse(localStorage.getItem('contact_messages') || '[]');
-            messages.push({
-                name: name,
-                email: email,
-                phone: phone,
-                subject: subject || 'General Inquiry',
-                message: message,
-                date: new Date().toISOString()
-            });
-            localStorage.setItem('contact_messages', JSON.stringify(messages));
+            // Disable button and show loading
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
 
-            alert('✅ Thank you for your message! We will get back to you soon.');
-            
-            // Reset form
-            this.reset();
+            // Send to backend API
+            fetch(`${API_BASE_URL}/api/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    phone: phone || '',
+                    subject: subject || 'General Inquiry',
+                    message: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('✅ Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                } else {
+                    alert('❌ Error: ' + (data.error || 'Something went wrong. Please try again.'));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('❌ Network error. Please check your connection and try again.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            });
         });
 
-        // Chatbot functionality
+        // ============================================
+        // CHATBOT FUNCTIONALITY
+        // ============================================
         document.addEventListener('DOMContentLoaded', function() {
             const chatToggle = document.getElementById('chatbotToggle');
             const chatWindow = document.getElementById('chatWindow');
