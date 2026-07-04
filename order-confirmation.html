@@ -1,0 +1,980 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Order Confirmation - Olivintra</title>
+    
+    <meta name="description" content="Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. ✓ Secure Online Payments ✓ Free shipping above ₹4999 ✓ Easy returns. WhatsApp: +91 9037392700">
+    <meta name="keywords" content="Olivintra, ethnic wear Kerala, women's clothing Kerala, kurtis online, sarees online, lehengas, salwar suits, Indian fashion Kerala, Kerala ethnic wear, online fashion Kerala, buy kurtis online Kerala, women's ethnic wear Kerala, premium clothing Kerala, quality fashion Kerala, secure online payment, WhatsApp shopping Kerala">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Location Specific SEO -->
+    <meta name="geo.region" content="IN-KL">
+    <meta name="geo.placename" content="Kerala">
+    <meta name="geo.position" content="10.8505;76.2711">
+    <meta name="ICBM" content="10.8505, 76.2711">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Olivintra - Premium Ethnic Wear in Kerala">
+    <meta property="og:description" content="Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. WhatsApp: +91 9037392700. Secure online payments.">
+    <meta property="og:image" content="static/images/og-image.jpg">
+    <meta property="og:site_name" content="Olivintra">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Olivintra - Premium Ethnic Wear in Kerala">
+    <meta name="twitter:description" content="Shop premium ethnic wear online at Olivintra. Kurtis, sarees, lehengas. WhatsApp: +91 9037392700. Secure online payments.">
+    <meta name="twitter:image" content="static/images/og-image.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="author" content="Olivintra">
+    <meta name="copyright" content="Olivintra">
+    <meta name="theme-color" content="#4d502c">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
+    
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Olivintra",
+        "url": "https://olivintra.in",
+        "logo": "static/uploads/logo.jpg",
+        "description": "Olivintra - Premium ethnic wear store in Kerala. Quality fashion at honest prices. Online payments only. WhatsApp: +91 9037392700",
+        "email": "contact@olivintra.com",
+        "telephone": "+91-9037392700",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kerala",
+            "addressRegion": "Kerala",
+            "addressCountry": "IN"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-9037392700",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Hindi", "Malayalam"]
+        },
+        "keywords": "ethnic wear Kerala, online fashion Kerala, premium clothing Kerala, WhatsApp shopping Kerala"
+    }
+    </script>
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbf9f6; color: #111111; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .flash-message { padding: 1rem; margin-bottom: 1rem; border-radius: 4px; }
+        .flash-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .flash-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .flash-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .transition-all { transition: all 0.3s ease; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .hamburger-line {
+            width: 26px;
+            height: 2px;
+            background-color: #111;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .hamburger-line:not(:last-child) { margin-bottom: 5px; }
+        .hamburger-active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger-active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 60;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .slide-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 280px;
+            max-width: 80vw;
+            height: 100%;
+            background: #fbf9f6;
+            z-index: 70;
+            padding: 2rem 1.5rem;
+            box-shadow: -8px 0 30px rgba(0,0,0,0.1);
+            transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-menu.open { right: 0; }
+        .slide-menu .close-btn {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #111;
+            padding: 0.25rem 0.5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+        .slide-menu .close-btn:hover { color: #8c6239; }
+        .slide-menu a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e5e5;
+            color: #111;
+            transition: color 0.2s;
+        }
+        .slide-menu a:hover { color: #8c6239; }
+        .slide-menu .shop-now-btn {
+            margin-top: 1.5rem;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 0.9rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            border: none;
+            transition: background 0.2s;
+        }
+        .slide-menu .shop-now-btn:hover { background: #8c6239; }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #8c6239;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'Playfair Display', serif;
+            flex-shrink: 0;
+        }
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #8c6239;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active::after { width: 100%; }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            z-index: 1000;
+            background-color: #4d502c;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(77, 80, 44, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: whatsappPulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(77, 80, 44, 0.6);
+            color: white;
+            background-color: #3d4022;
+        }
+        .whatsapp-float i { font-size: 32px; }
+        .whatsapp-float .tooltip {
+            position: absolute;
+            right: 70px;
+            background: #111;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .whatsapp-float:hover .tooltip { opacity: 1; }
+        .whatsapp-float .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 6px solid #111;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        
+        @keyframes whatsappPulse {
+            0% { box-shadow: 0 0 0 0 rgba(77, 80, 44, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(77, 80, 44, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(77, 80, 44, 0); }
+        }
+        
+        .search-wrapper {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 4px 8px;
+            transition: all 0.3s ease;
+        }
+        .search-wrapper:focus-within {
+            border-color: #8c6239;
+            box-shadow: 0 0 0 2px rgba(140, 98, 57, 0.2);
+        }
+        .search-wrapper input {
+            border: none;
+            outline: none;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            width: 120px;
+            background: transparent;
+        }
+        .search-wrapper input:focus { outline: none; }
+        .search-wrapper button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            padding: 4px 6px;
+            transition: color 0.3s ease;
+        }
+        .search-wrapper button:hover { color: #8c6239; }
+        
+        .search-toggle-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #111;
+            font-size: 1.1rem;
+            padding: 4px;
+            transition: color 0.3s ease;
+        }
+        .search-toggle-btn:hover { color: #8c6239; }
+        
+        .mobile-search-form {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .mobile-search-form.active { display: block; }
+        .mobile-search-form input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+        .mobile-search-form input:focus { border-color: #8c6239; }
+        .mobile-search-form button {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        #chatWindow {
+            height: 500px;
+            max-height: 80vh;
+            transition: all 0.3s ease;
+        }
+        #chatMessages::-webkit-scrollbar { width: 4px; }
+        #chatMessages::-webkit-scrollbar-track { background: #f1f1f1; }
+        #chatMessages::-webkit-scrollbar-thumb {
+            background: #4d502c;
+            border-radius: 10px;
+        }
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #999;
+            animation: typing 1.4s infinite both;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: scale(0.4); opacity: 0.4; }
+            30% { transform: scale(1); opacity: 1; }
+        }
+        
+        #chatbotToggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+            background-color: #4d502c;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(77, 80, 44, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #chatbotToggle:hover {
+            transform: scale(1.05);
+            background-color: #3d4022;
+            box-shadow: 0 6px 30px rgba(77, 80, 44, 0.6);
+        }
+        
+        @media (max-width: 640px) {
+            #chatWindow {
+                width: calc(100vw - 32px);
+                right: 16px;
+                bottom: 100px;
+                height: 60vh;
+            }
+            .whatsapp-float {
+                bottom: 100px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            .whatsapp-float i { font-size: 26px; }
+            #chatbotToggle {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 768px) {
+            .search-wrapper { display: none !important; }
+            .search-toggle-btn { display: block; }
+            .whatsapp-float { bottom: 100px; }
+        }
+        @media (max-width: 767px) {
+            .brand-logo { width: 32px; height: 32px; font-size: 14px; }
+        }
+        @media (max-width: 480px) {
+            .grid-cols-2 { grid-template-columns: 1fr 1fr !important; }
+            .gap-6 { gap: 8px !important; }
+            .p-6 { padding: 12px !important; }
+            .text-2xl { font-size: 1.25rem !important; }
+            .text-3xl { font-size: 1.5rem !important; }
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { light: '#fbf9f6', gold: '#c5a880', accent: '#8c6239', dark: '#111111' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <!-- Slide Menu -->
+    <div id="slideMenu" class="slide-menu">
+        <button id="closeMenuBtn" class="close-btn" aria-label="Close menu">✕</button>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="my-orders.html">My Orders</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/919037392700?text=Hello%20Olivintra" target="_blank" class="flex items-center gap-2 border-b border-gray-200 pb-3 pt-3 text-[#4d502c] hover:text-[#3d4022]">
+            <i class="fab fa-whatsapp text-lg"></i> WhatsApp
+        </a>
+        <a href="shop.html" class="shop-now-btn">Shop Now</a>
+        <div style="margin-top: auto; padding-top: 2rem; font-size: 0.65rem; color: #888; text-align: center; border-top: 1px solid #e5e5e5; padding-bottom: 0.5rem;">
+            <span class="block tracking-widest">OLIVINTRA</span>
+            <span class="block text-[0.55rem] uppercase tracking-wider mt-1">Premium Ethnic Wear</span>
+        </div>
+    </div>
+
+    <!-- Free Shipping Banner -->
+    <div class="bg-brand-dark text-white text-[10px] sm:text-xs tracking-widest text-center py-1.5 px-4 uppercase font-medium">
+        Free Shipping on Orders Above ₹2999 | Online Payments Only
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-brand-light border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 sm:h-20 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="brand-logo">
+                        <img src="static/uploads/logo.jpg" alt="Olivintra Logo">
+                    </div>
+                    <a href="index.html" class="text-lg sm:text-xl md:text-2xl font-serif tracking-widest uppercase font-bold text-brand-dark">
+                        OLIVINTRA
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex items-center gap-6" aria-label="Main Navigation">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-brand-accent">Home</a>
+                    <a href="shop.html" class="nav-link text-gray-600 hover:text-brand-accent">Products</a>
+                    <a href="my-orders.html" class="nav-link text-gray-600 hover:text-brand-accent">My Orders</a>
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-brand-accent">About Us</a>
+                    <a href="contact.html" class="nav-link text-gray-600 hover:text-brand-accent">Contact</a>
+                </nav>
+
+                <div class="flex items-center space-x-3 sm:space-x-5 relative">
+                    <a href="https://wa.me/919037392700?text=Hello%20Olivintra" target="_blank" class="text-[#4d502c] hover:text-[#3d4022] transition text-xs md:text-sm font-semibold whitespace-nowrap hidden sm:inline-block">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                    
+                    <form action="shop.html" method="GET" class="search-wrapper hidden sm:flex" role="search">
+                        <input type="text" name="search" placeholder="Search..." aria-label="Search products">
+                        <button type="submit" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    
+                    <button class="search-toggle-btn sm:hidden" id="mobileSearchToggle" aria-label="Toggle search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <a href="cart.html" class="text-brand-dark hover:text-brand-accent transition text-sm relative" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-bag text-lg"></i>
+                        <span class="absolute -top-2 -right-3 bg-brand-accent text-white rounded-full text-[10px] px-1.5 py-0.5 min-w-[20px] text-center" id="cart-count">0</span>
+                    </a>
+                    
+                    <button id="hamburgerBtn" class="md:hidden flex flex-col items-center justify-center w-8 h-8 focus:outline-none" aria-label="menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-search-form" id="mobileSearchForm">
+                <form action="shop.html" method="GET" style="position:relative; width:100%;">
+                    <input type="text" name="search" placeholder="Search products...">
+                    <button type="submit" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================= -->
+    <!-- PAGE CONTENT -->
+    <!-- ============================================= -->
+    <main>
+        <section class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center">
+            <div class="bg-green-50 border border-green-200 rounded-lg p-8 mb-6">
+                <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
+                <h1 class="text-2xl sm:text-3xl font-serif text-brand-dark mb-2">Order Confirmed! 🎉</h1>
+                <p class="text-gray-600 mb-4">Thank you for your order! We'll ship it soon.</p>
+                <p class="text-sm text-gray-500">Order #: <span id="orderNumber" class="font-semibold">OL-XXXXXXXX</span></p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-gray-200 text-left">
+                <h2 class="font-semibold text-brand-dark mb-4">Order Details</h2>
+                <div class="space-y-2 text-sm" id="orderDetails">
+                    <p><span class="font-medium">Customer:</span> <span id="customerName">Loading...</span></p>
+                    <p><span class="font-medium">Email:</span> <span id="customerEmail">Loading...</span></p>
+                    <p><span class="font-medium">Phone:</span> <span id="customerPhone">Loading...</span></p>
+                    <p><span class="font-medium">Address:</span> <span id="customerAddress">Loading...</span></p>
+                    <p><span class="font-medium">City:</span> <span id="customerCity">Loading...</span></p>
+                    <p><span class="font-medium">State:</span> <span id="customerState">Loading...</span></p>
+                    <p><span class="font-medium">Pincode:</span> <span id="customerPincode">Loading...</span></p>
+                    <p><span class="font-medium">Payment Method:</span> <span id="paymentMethod">Razorpay</span></p>
+                    <p><span class="font-medium">Total:</span> ₹<span id="orderTotal">0.00</span></p>
+                </div>
+            </div>
+
+            <!-- WhatsApp Support -->
+            <div class="mt-6 p-4 bg-[#4d502c]/10 border border-[#4d502c]/20 rounded-lg text-center">
+                <p class="text-sm text-gray-600 mb-2">Have questions about your order?</p>
+                <a href="https://wa.me/919037392700?text=Hi! I have a question about my order" 
+                   target="_blank" 
+                   class="inline-flex items-center justify-center gap-2 bg-[#4d502c] text-white px-6 py-3 rounded-lg hover:bg-[#3d4022] transition">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>Contact us on WhatsApp</span>
+                </a>
+                <p class="text-xs text-gray-400 mt-2">We'll respond within 24 hours</p>
+            </div>
+
+            <div class="mt-6 space-x-4">
+                <a href="index.html" class="bg-brand-dark text-white px-6 py-2 rounded hover:bg-brand-accent transition inline-block">
+                    Continue Shopping
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-gray-400 text-xs py-12 sm:py-16 border-t border-gray-800 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <p class="text-white text-sm font-medium uppercase tracking-wider mb-3">Follow Us</p>
+                <div class="flex justify-center gap-6">
+                    <a href="https://www.facebook.com/share/18hECcHyk6/" target="_blank" class="text-gray-400 hover:text-white transition text-2xl hover:scale-110 transform duration-200" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/olivintraa?igsh=dTV5YmIwZzhqcW03" target="_blank" class="text-gray-400 hover:text-white transition text-2xl hover:scale-110 transform duration-200" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-4 space-y-3">
+                    <h3 class="text-white text-lg font-serif tracking-widest uppercase font-bold">OLIVINTRA</h3>
+                    <p class="text-gray-400 max-w-xs leading-relaxed">Timeless fashion for every moment. Beautifully designed ethnic wear tailored with precision and premium craftsmanship.</p>
+                </div>
+                <div class="md:col-span-2 space-y-2">
+                    <h4 class="text-white font-semibold uppercase tracking-wider text-xs">Shop</h4>
+                    <ul class="space-y-1.5">
+                        <li><a href="shop.html" class="hover:text-white transition">All Products</a></li>
+                        <li><a href="new-arrivals.html" class="hover:text-white transition">New Arrivals</a></li>
+                        <li><a href="best-sellers.html" class="hover:text-white transition">Best Sellers</a></li>
+                        <li><a href="my-orders.html" class="hover:text-white transition">My Orders</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3 space-y-2">
+                    <h4 class="text-white font-semibold uppercase tracking-wider text-xs">Contact</h4>
+                    <ul class="space-y-1.5 text-gray-400">
+                        <li><span class="font-medium text-gray-300 text-[11px]">942P+WJX Parassala,<br>Kerala, India</span></li>
+                        <li><a href="tel:+919037392700" class="hover:text-white transition">+91 90373 92700</a></li>
+                        <li><a href="mailto:olivintra@gmail.com" class="hover:text-white transition text-[11px]">olivintra@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3 space-y-2">
+                    <h4 class="text-white font-semibold uppercase tracking-wider text-xs">Quick Links</h4>
+                    <ul class="space-y-1.5">
+                        <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="return-policy.html" class="hover:text-white transition">Return Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 text-center text-gray-600 text-[10px] sm:text-xs">
+                &copy; 2026 Olivintra. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================= -->
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <!-- ============================================= -->
+    <a href="https://wa.me/919037392700?text=Hello%20Olivintra" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <span class="tooltip">Chat with us</span>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ============================================= -->
+    <!-- AI CHATBOT -->
+    <!-- ============================================= -->
+    <div id="chatbotContainer">
+        <button id="chatbotToggle" class="fixed bottom-6 right-6 z-50 bg-[#4d502c] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#3d4022] transition-all duration-300 flex items-center gap-3 hover:shadow-xl group">
+            <div class="relative">
+                <i class="fas fa-robot text-lg"></i>
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+            </div>
+            <span class="text-sm font-medium">Need help?</span>
+            <i class="fas fa-chevron-up text-xs opacity-50 group-hover:opacity-100 transition"></i>
+        </button>
+
+        <div id="chatWindow" class="fixed bottom-36 right-6 z-50 w-80 sm:w-96 h-[500px] bg-white rounded-xl shadow-2xl border border-gray-200 hidden flex flex-col overflow-hidden">
+            <div class="bg-[#4d502c] text-white px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-robot text-xl"></i>
+                    <span class="font-semibold">Olivintra AI</span>
+                    <span class="text-xs bg-green-400 text-black px-2 py-0.5 rounded-full">Online</span>
+                </div>
+                <button id="closeChat" class="text-white hover:text-gray-300 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
+                <div class="flex items-start gap-2">
+                    <div class="w-8 h-8 rounded-full bg-[#4d502c] flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-sm"></i>
+                    </div>
+                    <div class="bg-white rounded-lg px-4 py-2 shadow-sm max-w-[85%]">
+                        <p class="text-sm text-gray-700">Welcome to Olivintra! 👋 I'm your AI shopping assistant. Ask me about products, shipping, returns, or anything about our store!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quickReplies" class="px-4 py-2 bg-white border-t border-gray-100 flex flex-wrap gap-2">
+                <button class="quick-reply text-xs bg-gray-100 hover:bg-[#4d502c] hover:text-white px-3 py-1.5 rounded-full transition text-gray-700">Products</button>
+                <button class="quick-reply text-xs bg-gray-100 hover:bg-[#4d502c] hover:text-white px-3 py-1.5 rounded-full transition text-gray-700">Shipping</button>
+                <button class="quick-reply text-xs bg-gray-100 hover:bg-[#4d502c] hover:text-white px-3 py-1.5 rounded-full transition text-gray-700">Returns</button>
+                <button class="quick-reply text-xs bg-gray-100 hover:bg-[#4d502c] hover:text-white px-3 py-1.5 rounded-full transition text-gray-700">COD</button>
+            </div>
+
+            <div class="p-3 bg-white border-t border-gray-200">
+                <form id="chatForm" class="flex gap-2">
+                    <input type="text" id="chatInput" placeholder="Type your message..." 
+                           class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4d502c] text-sm">
+                    <button type="submit" id="sendMessage" class="bg-[#4d502c] text-white px-4 py-2 rounded-lg hover:bg-[#3d4022] transition disabled:opacity-50">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Search Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchToggle = document.getElementById('mobileSearchToggle');
+            const searchForm = document.getElementById('mobileSearchForm');
+            
+            if (searchToggle && searchForm) {
+                searchToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    searchForm.classList.toggle('active');
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (!searchForm.contains(e.target) && e.target !== searchToggle) {
+                        searchForm.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+        // Mobile Menu Functions
+        (function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const closeBtn = document.getElementById('closeMenuBtn');
+            const overlay = document.getElementById('menuOverlay');
+            const slideMenu = document.getElementById('slideMenu');
+
+            function openMenu() {
+                if (slideMenu) {
+                    slideMenu.classList.add('open');
+                    overlay.classList.add('open');
+                    if (hamburgerBtn) hamburgerBtn.classList.add('hamburger-active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeMenu() {
+                if (slideMenu) {
+                    slideMenu.classList.remove('open');
+                    overlay.classList.remove('open');
+                    if (hamburgerBtn) hamburgerBtn.classList.remove('hamburger-active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (slideMenu && slideMenu.classList.contains('open')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                });
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeMenu);
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', closeMenu);
+            }
+
+            if (slideMenu) {
+                slideMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                    document.getElementById('mobileSearchForm')?.classList.remove('active');
+                }
+            });
+        })();
+
+        // Cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        updateCartCount();
+
+        // ============================================
+        // LOAD ORDER DETAILS FROM localStorage
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the last order from localStorage
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            
+            if (orders.length > 0) {
+                const lastOrder = orders[orders.length - 1];
+                
+                document.getElementById('orderNumber').textContent = lastOrder.order_number || 'OL-' + Date.now().toString().slice(-8);
+                document.getElementById('customerName').textContent = lastOrder.name || 'N/A';
+                document.getElementById('customerEmail').textContent = lastOrder.email || 'N/A';
+                document.getElementById('customerPhone').textContent = lastOrder.phone || 'N/A';
+                document.getElementById('customerAddress').textContent = lastOrder.address || 'N/A';
+                document.getElementById('customerCity').textContent = lastOrder.city || 'N/A';
+                document.getElementById('customerState').textContent = lastOrder.state || 'N/A';
+                document.getElementById('customerPincode').textContent = lastOrder.pincode || 'N/A';
+                document.getElementById('paymentMethod').textContent = 'Razorpay';
+                
+                // Calculate total from cart items
+                let total = 0;
+                if (lastOrder.cart_items) {
+                    lastOrder.cart_items.forEach(item => {
+                        total += (item.price || 0) * item.quantity;
+                    });
+                }
+                document.getElementById('orderTotal').textContent = total.toFixed(2);
+                
+                // Update WhatsApp link with order number
+                const waLink = document.querySelector('.whatsapp-float, a[href*="wa.me"]');
+                const waSupportLink = document.querySelector('.bg-[#4d502c]/10 a[href*="wa.me"]');
+                if (waSupportLink) {
+                    waSupportLink.href = `https://wa.me/919037392700?text=Hi! I have a question about my order #${lastOrder.order_number || 'OL-' + Date.now().toString().slice(-8)}`;
+                }
+            } else {
+                // If no orders found, show sample data
+                document.getElementById('orderNumber').textContent = 'OL-20260704-XXXX';
+                document.getElementById('customerName').textContent = 'Guest Customer';
+                document.getElementById('customerEmail').textContent = 'guest@example.com';
+                document.getElementById('customerPhone').textContent = '+91 98765 43210';
+                document.getElementById('customerAddress').textContent = 'Sample Address';
+                document.getElementById('customerCity').textContent = 'Kerala';
+                document.getElementById('customerState').textContent = 'Kerala';
+                document.getElementById('customerPincode').textContent = '695001';
+                document.getElementById('paymentMethod').textContent = 'Razorpay';
+                document.getElementById('orderTotal').textContent = '0.00';
+            }
+        });
+
+        // ============================================
+        // CHATBOT FUNCTIONALITY
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('chatbotToggle');
+            const chatWindow = document.getElementById('chatWindow');
+            const closeChat = document.getElementById('closeChat');
+            const chatForm = document.getElementById('chatForm');
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const quickReplies = document.querySelectorAll('.quick-reply');
+            const sendBtn = document.getElementById('sendMessage');
+            let isOpen = false;
+            let isProcessing = false;
+
+            chatToggle.addEventListener('click', function() {
+                isOpen = !isOpen;
+                chatWindow.classList.toggle('hidden', !isOpen);
+                if (isOpen) {
+                    chatInput.focus();
+                }
+            });
+
+            closeChat.addEventListener('click', function() {
+                isOpen = false;
+                chatWindow.classList.add('hidden');
+            });
+
+            quickReplies.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const message = this.textContent.trim();
+                    chatInput.value = message;
+                    sendMessage(message);
+                });
+            });
+
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const message = chatInput.value.trim();
+                if (message && !isProcessing) {
+                    sendMessage(message);
+                }
+            });
+
+            function sendMessage(message) {
+                if (isProcessing) return;
+                
+                addMessage(message, 'user');
+                chatInput.value = '';
+                isProcessing = true;
+                sendBtn.disabled = true;
+                showTyping();
+
+                setTimeout(() => {
+                    hideTyping();
+                    const responses = [
+                        "Thank you for your message! I'll help you with that. 😊",
+                        "Great question! Let me find the best answer for you.",
+                        "I understand. Let me assist you with that.",
+                        "That's a good question! Here's what I can tell you."
+                    ];
+                    addMessage(responses[Math.floor(Math.random() * responses.length)], 'bot');
+                    isProcessing = false;
+                    sendBtn.disabled = false;
+                }, 1000);
+            }
+
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `flex items-start gap-2 ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+
+                const avatar = document.createElement('div');
+                avatar.className = `w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${sender === 'user' ? 'bg-gray-300' : 'bg-[#4d502c]'}`;
+                avatar.innerHTML = sender === 'user' ? 
+                    '<i class="fas fa-user text-white text-sm"></i>' : 
+                    '<i class="fas fa-robot text-white text-sm"></i>';
+
+                const bubble = document.createElement('div');
+                bubble.className = `${sender === 'user' ? 'bg-[#4d502c] text-white' : 'bg-white'} rounded-lg px-4 py-2 shadow-sm max-w-[85%]`;
+                
+                const p = document.createElement('p');
+                p.className = `text-sm ${sender === 'user' ? 'text-white' : 'text-gray-700'}`;
+                p.textContent = text;
+                bubble.appendChild(p);
+
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(bubble);
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.id = 'typingIndicator';
+                typingDiv.className = 'flex items-start gap-2';
+                typingDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-[#4d502c] flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-sm"></i>
+                    </div>
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                `;
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function hideTyping() {
+                const typing = document.getElementById('typingIndicator');
+                if (typing) {
+                    typing.remove();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
