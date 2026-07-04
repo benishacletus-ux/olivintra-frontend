@@ -5,20 +5,21 @@
 // Your Render backend URL
 const API_BASE_URL = 'https://olivintra-backend.onrender.com';
 
+console.log('✅ api.js loaded!');
+
 // ============================================
 // Helper Functions
 // ============================================
 
-// Format price in Indian Rupees
 function formatPrice(price) {
     return '₹' + parseFloat(price).toFixed(2);
 }
 
-// Create a product card HTML
 function createProductCard(product) {
+    // Use backend URL for images
     const imageUrl = product.image 
-        ? `static/uploads/${product.image}` 
-        : 'static/images/placeholder.jpg';
+        ? `${API_BASE_URL}/static/uploads/${product.image}` 
+        : 'https://via.placeholder.com/300x400/cccccc/333333?text=Olivintra';
     
     return `
         <div class="group cursor-pointer">
@@ -52,27 +53,23 @@ function createProductCard(product) {
 // API Functions
 // ============================================
 
-// Fetch all products
 async function getProducts() {
     try {
         const response = await fetch(`${API_BASE_URL}/api/products`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return await response.json();
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        console.log(`✅ ${data.length} products fetched`);
+        return data;
     } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('❌ Error fetching products:', error);
         return [];
     }
 }
 
-// Fetch a single product by slug
 async function getProductBySlug(slug) {
     try {
         const response = await fetch(`${API_BASE_URL}/api/product/${slug}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return await response.json();
     } catch (error) {
         console.error('Error fetching product:', error);
@@ -80,13 +77,10 @@ async function getProductBySlug(slug) {
     }
 }
 
-// Fetch categories
 async function getCategories() {
     try {
         const response = await fetch(`${API_BASE_URL}/api/categories`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         return await response.json();
     } catch (error) {
         console.error('Error fetching categories:', error);
@@ -98,15 +92,15 @@ async function getCategories() {
 // Display Functions
 // ============================================
 
-// Display products in a container
 async function displayProducts(containerId, filter = null, limit = null) {
+    console.log(`📦 displayProducts: ${containerId}, filter: ${filter || 'none'}`);
+    
     const container = document.getElementById(containerId);
     if (!container) {
-        console.warn(`Container with ID "${containerId}" not found`);
+        console.warn(`❌ Container "${containerId}" not found`);
         return;
     }
 
-    // Show loading state
     container.innerHTML = '<div class="text-center text-gray-500 text-sm py-10 col-span-full">Loading products...</div>';
 
     const products = await getProducts();
@@ -116,39 +110,38 @@ async function displayProducts(containerId, filter = null, limit = null) {
         return;
     }
 
-    // Filter products if needed
     let filteredProducts = products;
     if (filter === 'new-arrivals') {
         filteredProducts = products.filter(p => p.is_new_arrival === true);
+        if (filteredProducts.length === 0) filteredProducts = products;
     } else if (filter === 'best-sellers') {
         filteredProducts = products.filter(p => p.is_best_seller === true);
+        if (filteredProducts.length === 0) filteredProducts = products;
     } else if (filter === 'featured') {
         filteredProducts = products.filter(p => p.is_featured === true);
+        if (filteredProducts.length === 0) filteredProducts = products;
     }
 
-    // Limit the number of products
     if (limit && filteredProducts.length > limit) {
         filteredProducts = filteredProducts.slice(0, limit);
     }
 
     if (filteredProducts.length === 0) {
-        container.innerHTML = '<div class="text-center text-gray-500 text-sm py-10 col-span-full">No products in this category.</div>';
+        container.innerHTML = `<div class="text-center text-gray-500 text-sm py-10 col-span-full">No products in "${filter || 'all'}" category.</div>`;
         return;
     }
 
-    // Generate HTML for each product
     container.innerHTML = filteredProducts.map(product => createProductCard(product)).join('');
+    console.log(`✅ Displayed ${filteredProducts.length} products in ${containerId}`);
 }
 
-// Display categories
 async function displayCategories(containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
-        console.warn(`Container with ID "${containerId}" not found`);
+        console.warn(`Container "${containerId}" not found`);
         return;
     }
 
-    // Show loading state
     container.innerHTML = '<div class="flex-shrink-0 text-center text-gray-500 text-sm py-10 w-full">Loading categories...</div>';
 
     const categories = await getCategories();
@@ -161,21 +154,9 @@ async function displayCategories(containerId) {
     container.innerHTML = categories.map(category => `
         <a href="shop.html?category=${category.slug}" class="flex flex-col items-center group flex-shrink-0 transition-all duration-300 hover:scale-105">
             <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gray-200 overflow-hidden border-2 border-gray-300 group-hover:border-brand-accent transition bg-cover bg-center shadow-md hover:shadow-xl"
-                 style="background-image: url('${category.image ? `static/uploads/${category.image}` : 'https://via.placeholder.com/150'}');">
+                 style="background-image: url('${category.image ? `${API_BASE_URL}/static/uploads/${category.image}` : 'https://via.placeholder.com/150'}');">
             </div>
             <span class="text-[10px] sm:text-xs font-semibold tracking-wider text-gray-700 uppercase mt-2 text-center">${category.name}</span>
         </a>
     `).join('');
 }
-
-// ============================================
-// Initialize when page loads
-// ============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Display products in different sections
-    displayProducts('new-arrivals-container', 'new-arrivals', 6);
-    displayProducts('best-sellers-container', 'best-sellers', 6);
-    displayProducts('featured-products-container', 'featured', 6);
-    displayProducts('all-products-container', null, 12);
-});
