@@ -891,7 +891,8 @@
         // CONTACT FORM - Send to Backend API
         // ============================================
 
-        const API_BASE_URL = 'https://olivintra-backend.onrender.com';
+        // Use API_BASE_URL from api.js (already defined)
+        // const API_BASE_URL is already defined in api.js
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -922,6 +923,7 @@
                     name: name,
                     email: email,
                     phone: phone || '',
+                    subject: subject || 'General Inquiry',
                     message: message
                 })
             })
