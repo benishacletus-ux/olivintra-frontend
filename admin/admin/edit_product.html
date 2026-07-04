@@ -1,15 +1,15 @@
-﻿{% extends "admin/base_admin.html" %}
+﻿
 
-{% block title %}Edit Product - Olivintra Admin{% endblock %}
+Edit Product - Olivintra Admin
 
-{% block admin_content %}
+
 <div class="mb-4 md:mb-8">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
         <div>
             <h2 class="text-2xl md:text-3xl font-serif text-brand-dark">Edit Product</h2>
             <p class="text-gray-500 text-xs md:text-sm mt-1">Update product details</p>
         </div>
-        <a href="{{ url_for('admin_products') }}" class="text-brand-accent hover:underline text-sm">
+        <a href="" class="text-brand-accent hover:underline text-sm">
             <i class="fas fa-arrow-left mr-1"></i> Back
         </a>
     </div>
@@ -21,14 +21,14 @@
             <!-- Product Name -->
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Product Name *</label>
-                <input type="text" name="name" id="name" required value="{{ product.name }}"
+                <input type="text" name="name" id="name" required value=""
                        class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
             </div>
             
             <!-- Slug -->
             <div>
                 <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
-                <input type="text" name="slug" id="slug" value="{{ product.slug }}"
+                <input type="text" name="slug" id="slug" value=""
                        class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
             </div>
         </div>
@@ -37,28 +37,28 @@
         <div>
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
             <textarea name="description" id="description" rows="3 md:rows-4"
-                      class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">{{ product.description }}</textarea>
+                      class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base"></textarea>
         </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <!-- Price -->
             <div>
                 <label for="price" class="block text-sm font-medium text-gray-700">Price *</label>
-                <input type="number" name="price" id="price" step="0.01" required value="{{ product.price }}"
+                <input type="number" name="price" id="price" step="0.01" required value=""
                        class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
             </div>
             
             <!-- Original Price -->
             <div>
                 <label for="original_price" class="block text-sm font-medium text-gray-700">Original Price</label>
-                <input type="number" name="original_price" id="original_price" step="0.01" value="{{ product.original_price }}"
+                <input type="number" name="original_price" id="original_price" step="0.01" value=""
                        class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
             </div>
             
             <!-- Stock -->
             <div>
                 <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
-                <input type="number" name="stock" id="stock" min="0" value="{{ product.stock }}"
+                <input type="number" name="stock" id="stock" min="0" value=""
                        class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
             </div>
         </div>
@@ -70,18 +70,18 @@
                 <select name="category_id" id="category_id"
                         class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
                     <option value="">Select Category</option>
-                    {% for category in categories %}
-                    <option value="{{ category.id }}" {% if product.category_id == category.id %}selected{% endif %}>
-                        {{ category.name }}
+                    
+                    <option value="" selected>
+                        
                     </option>
-                    {% endfor %}
+                    
                 </select>
             </div>
             
             <!-- Material -->
             <div>
                 <label for="material" class="block text-sm font-medium text-gray-700">Material</label>
-                <input type="text" name="material" id="material" value="{{ product.material }}"
+                <input type="text" name="material" id="material" value=""
                        class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base"
                        placeholder="e.g., Cotton, Silk">
             </div>
@@ -91,7 +91,7 @@
         <div>
             <label for="care_instructions" class="block text-sm font-medium text-gray-700">Care Instructions</label>
             <textarea name="care_instructions" id="care_instructions" rows="2"
-                      class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">{{ product.care_instructions }}</textarea>
+                      class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base"></textarea>
         </div>
         
         <!-- ==================== SIZES ==================== -->
@@ -107,7 +107,7 @@
                 <button type="button" class="size-btn px-4 py-2 border-2 border-gray-300 rounded-lg text-sm font-medium hover:border-[#4d502c] transition touch-manipulation" data-size="XXXL">XXXL</button>
             </div>
             <!-- Hidden input to store selected sizes -->
-            <input type="hidden" name="sizes" id="sizesInput" value="{{ product.sizes if product.sizes else '' }}">
+            <input type="hidden" name="sizes" id="sizesInput" value="">
             <p class="text-xs text-gray-400 mt-2">Click on sizes to select/deselect. Selected sizes will be shown in green.</p>
             <div id="selectedSizesDisplay" class="flex flex-wrap gap-2 mt-2"></div>
         </div>
@@ -117,13 +117,13 @@
             <label for="image" class="block text-sm font-medium text-gray-700">Main Image</label>
             <div class="mt-1 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
                 <div id="mainImagePreview" class="w-24 h-24 sm:w-32 sm:h-32 border border-gray-300 rounded-lg overflow-hidden flex-shrink-0">
-                    {% if product.image %}
-                    <img src="{{ url_for('static', filename='uploads/' + product.image) }}" class="w-full h-full object-cover">
-                    {% else %}
+                    
+                    <img src="" class="w-full h-full object-cover">
+                    
                     <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50">
                         <i class="fas fa-image text-2xl sm:text-3xl"></i>
                     </div>
-                    {% endif %}
+                    
                 </div>
                 <div class="flex-1 w-full">
                     <input type="file" name="image" id="image" accept="image/*"
@@ -138,29 +138,29 @@
             <label class="block text-sm font-medium text-gray-700">Additional Images (Max 5)</label>
             
             <!-- Existing Images -->
-            {% set images = product.get_images() %}
+            
             <div class="mt-2 flex flex-wrap gap-2 sm:gap-3">
-                {% if images %}
-                    {% for img in images %}
+                
+                    
                     <div class="relative group">
                         <div class="w-16 h-16 sm:w-20 sm:h-20 border border-gray-300 rounded-lg overflow-hidden">
-                            <img src="{{ url_for('static', filename='uploads/' + img) }}" 
+                            <img src="" 
                                  alt="Product image" 
                                  class="w-full h-full object-cover">
                         </div>
                         <button type="button" 
-                                onclick="removeImage({{ product.id }}, {{ loop.index0 }})" 
+                                onclick="removeImage(, )" 
                                 class="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center hover:bg-red-600 transition text-[10px] sm:text-xs opacity-0 group-hover:opacity-100">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
-                    {% endfor %}
+                    
                     <div class="text-xs text-gray-400 mt-2 w-full">
-                        {{ images|length }} of 5 images used
+                         of 5 images used
                     </div>
-                {% else %}
+                
                     <p class="text-sm text-gray-400 mt-2">No additional images</p>
-                {% endif %}
+                
             </div>
             
             <!-- Upload New Images -->
@@ -187,15 +187,15 @@
         <!-- Features -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
             <label class="flex items-center gap-2 text-sm">
-                <input type="checkbox" name="is_featured" {% if product.is_featured %}checked{% endif %} class="h-4 w-4 text-[#4d502c]">
+                <input type="checkbox" name="is_featured" checked class="h-4 w-4 text-[#4d502c]">
                 <span class="text-gray-700">Featured</span>
             </label>
             <label class="flex items-center gap-2 text-sm">
-                <input type="checkbox" name="is_best_seller" {% if product.is_best_seller %}checked{% endif %} class="h-4 w-4 text-[#4d502c]">
+                <input type="checkbox" name="is_best_seller" checked class="h-4 w-4 text-[#4d502c]">
                 <span class="text-gray-700">Best Seller</span>
             </label>
             <label class="flex items-center gap-2 text-sm">
-                <input type="checkbox" name="is_new_arrival" {% if product.is_new_arrival %}checked{% endif %} class="h-4 w-4 text-[#4d502c]">
+                <input type="checkbox" name="is_new_arrival" checked class="h-4 w-4 text-[#4d502c]">
                 <span class="text-gray-700">New Arrival</span>
             </label>
         </div>
@@ -205,7 +205,7 @@
             <button type="submit" class="bg-[#4d502c] text-white px-4 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-[#3d4022] transition font-medium text-sm md:text-base w-full sm:w-auto">
                 <i class="fas fa-save mr-2"></i> Update
             </button>
-            <a href="{{ url_for('admin_products') }}" class="bg-gray-200 text-gray-700 px-4 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-gray-300 transition font-medium text-sm md:text-base text-center w-full sm:w-auto">
+            <a href="" class="bg-gray-200 text-gray-700 px-4 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-gray-300 transition font-medium text-sm md:text-base text-center w-full sm:w-auto">
                 Cancel
             </a>
         </div>
@@ -426,4 +426,4 @@ kbd {
     }
 }
 </style>
-{% endblock %}
+

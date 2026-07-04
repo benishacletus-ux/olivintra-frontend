@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
     <!-- Primary Meta Tags -->
-    {% block title %}
-    <title>Olivintra - Premium Ethnic Wear in Kerala | Online Fashion Store</title>
-    {% endblock %}
     
-    <meta name="description" content="{% block meta_description %}Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. âœ“ Secure Online Payments âœ“ Free shipping above â‚¹4999 âœ“ Easy returns. WhatsApp: +91 9037392700{% endblock %}">
-    <meta name="keywords" content="{% block meta_keywords %}Olivintra, ethnic wear Kerala, women's clothing Kerala, kurtis online, sarees online, lehengas, salwar suits, Indian fashion Kerala, Kerala ethnic wear, online fashion Kerala, buy kurtis online Kerala, women's ethnic wear Kerala, premium clothing Kerala, quality fashion Kerala, secure online payment, WhatsApp shopping Kerala{% endblock %}">
-    <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
-    <link rel="canonical" href="{% block canonical %}{{ request.url }}{% endblock %}">
+    <title>Olivintra - Premium Ethnic Wear in Kerala | Online Fashion Store</title>
+    
+    
+    <meta name="description" content="Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. âœ“ Secure Online Payments âœ“ Free shipping above â‚¹4999 âœ“ Easy returns. WhatsApp: +91 9037392700">
+    <meta name="keywords" content="Olivintra, ethnic wear Kerala, women's clothing Kerala, kurtis online, sarees online, lehengas, salwar suits, Indian fashion Kerala, Kerala ethnic wear, online fashion Kerala, buy kurtis online Kerala, women's ethnic wear Kerala, premium clothing Kerala, quality fashion Kerala, secure online payment, WhatsApp shopping Kerala">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="">
     
     <!-- Location Specific SEO -->
     <meta name="geo.region" content="IN-KL">
@@ -21,20 +21,20 @@
     <meta name="ICBM" content="10.8505, 76.2711">
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
-    <meta property="og:url" content="{% block og_url %}{{ request.url }}{% endblock %}">
-    <meta property="og:title" content="{% block og_title %}Olivintra - Premium Ethnic Wear in Kerala{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. WhatsApp: +91 9037392700. Secure online payments.{% endblock %}">
-    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Olivintra - Premium Ethnic Wear in Kerala">
+    <meta property="og:description" content="Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. WhatsApp: +91 9037392700. Secure online payments.">
+    <meta property="og:image" content="">
     <meta property="og:site_name" content="Olivintra">
     <meta property="og:locale" content="en_IN">
     
     <!-- Twitter -->
-    <meta name="twitter:card" content="{% block twitter_card %}summary_large_image{% endblock %}">
-    <meta name="twitter:url" content="{% block twitter_url %}{{ request.url }}{% endblock %}">
-    <meta name="twitter:title" content="{% block twitter_title %}Olivintra - Premium Ethnic Wear in Kerala{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Shop premium ethnic wear online at Olivintra. Kurtis, sarees, lehengas. WhatsApp: +91 9037392700. Secure online payments.{% endblock %}">
-    <meta name="twitter:image" content="{% block twitter_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="Olivintra - Premium Ethnic Wear in Kerala">
+    <meta name="twitter:description" content="Shop premium ethnic wear online at Olivintra. Kurtis, sarees, lehengas. WhatsApp: +91 9037392700. Secure online payments.">
+    <meta name="twitter:image" content="">
     
     <!-- Additional SEO -->
     <meta name="author" content="Olivintra">
@@ -68,8 +68,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Olivintra",
-        "url": "{{ request.url_root }}",
-        "logo": "{{ url_for('static', filename='uploads/logo.jpg', _external=True) }}",
+        "url": "",
+        "logo": "",
         "description": "Olivintra - Premium ethnic wear store in Kerala. Quality fashion at honest prices. Online payments only. WhatsApp: +91 9037392700",
         "email": "contact@olivintra.com",
         "telephone": "+91-9037392700",
@@ -837,19 +837,19 @@
             }
         }
     </script>
-    {% block extra_head %}{% endblock %}
+    
 </head>
 <body>
     <!-- Flash Messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
+    
+        
             <div class="max-w-7xl mx-auto px-4 pt-4" id="flashMessages">
-                {% for category, message in messages %}
-                    <div class="flash-message flash-{{ category }}">{{ message }}</div>
-                {% endfor %}
+                
+                    <div class="flash-message flash-"></div>
+                
             </div>
-        {% endif %}
-    {% endwith %}
+        
+    
 
     <!-- Mobile Menu Overlay -->
     <div id="menuOverlay" class="menu-overlay"></div>
@@ -895,20 +895,20 @@
 
                 <!-- Center: Navigation (Desktop) - FIXED: All links point to correct pages -->
                 <nav class="hidden md:flex items-center gap-6" aria-label="Main Navigation">
-                    <a href="/" class="nav-link {% if request.path == '/' %}active text-brand-accent{% else %}text-gray-600 hover:text-brand-accent{% endif %}">
+                    <a href="/" class="nav-link active text-brand-accenttext-gray-600 hover:text-brand-accent">
                         Home
                     </a>
-                    <a href="/shop" class="nav-link {% if '/shop' in request.path %}active text-brand-accent{% else %}text-gray-600 hover:text-brand-accent{% endif %}">
+                    <a href="/shop" class="nav-link active text-brand-accenttext-gray-600 hover:text-brand-accent">
                         Products
                     </a>
-                    <a href="/my-orders" class="nav-link {% if '/my-orders' in request.path %}active text-brand-accent{% else %}text-gray-600 hover:text-brand-accent{% endif %}">
+                    <a href="/my-orders" class="nav-link active text-brand-accenttext-gray-600 hover:text-brand-accent">
                         My Orders
                     
                     </a>
-                    <a href="/about" class="nav-link {% if '/about' in request.path %}active text-brand-accent{% else %}text-gray-600 hover:text-brand-accent{% endif %}">
+                    <a href="/about" class="nav-link active text-brand-accenttext-gray-600 hover:text-brand-accent">
                         About Us
                     </a>
-                    <a href="/contact" class="nav-link {% if '/contact' in request.path %}active text-brand-accent{% else %}text-gray-600 hover:text-brand-accent{% endif %}">
+                    <a href="/contact" class="nav-link active text-brand-accenttext-gray-600 hover:text-brand-accent">
                         Contact
                     </a>
                 </nav>
@@ -922,7 +922,7 @@
                     
                     <!-- Desktop Search -->
                     <form action="/shop" method="GET" class="search-wrapper hidden sm:flex" role="search">
-                        <input type="text" name="search" placeholder="Search..." value="{{ request.args.get('search', '') }}" aria-label="Search products">
+                        <input type="text" name="search" placeholder="Search..." value="" aria-label="Search products">
                         <button type="submit" aria-label="Search">
                             <i class="fas fa-search"></i>
                         </button>
@@ -937,7 +937,7 @@
                     <a href="/cart" class="text-brand-dark hover:text-brand-accent transition text-sm relative" aria-label="Shopping cart">
                         <i class="fas fa-shopping-bag text-lg"></i>
                         <span class="absolute -top-2 -right-3 bg-brand-accent text-white rounded-full text-[10px] px-1.5 py-0.5 min-w-[20px] text-center">
-                            {{ cart_count() }}
+                            
                         </span>
                     </a>
                     
@@ -953,7 +953,7 @@
             <!-- Mobile Search Form -->
             <div class="mobile-search-form" id="mobileSearchForm">
                 <form action="/shop" method="GET" style="position:relative; width:100%;">
-                    <input type="text" name="search" placeholder="Search products..." value="{{ request.args.get('search', '') }}">
+                    <input type="text" name="search" placeholder="Search products..." value="">
                     <button type="submit" aria-label="Search">
                         <i class="fas fa-search"></i>
                     </button>
@@ -968,7 +968,7 @@
     <!-- ============================================= -->
     <!-- CONTENT BLOCK -->
     <!-- ============================================= -->
-    {% block content %}{% endblock %}
+    
 
     <!-- ============================================= -->
     <!-- WHATSAPP FLOATING BUTTON - ABOVE AI CHAT -->
@@ -1416,6 +1416,6 @@
             }
         });
     </script>
-    {% block extra_js %}{% endblock %}
+    
     <!-- API JavaScript -->`n    <script src="static/js/api.js"></script>`n</body>
 </html>

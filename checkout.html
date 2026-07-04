@@ -1,8 +1,8 @@
-﻿{% extends "base.html" %}
+﻿
 
 
 
-{% block content %}
+
 
 <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
     <!-- Header -->
@@ -81,34 +81,34 @@
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-gray-200 sticky top-24">
                 <h2 class="text-xl font-serif text-brand-dark mb-4">Order Summary</h2>
                 
-                {% if cart_items %}
+                
                 <div class="space-y-3 max-h-60 overflow-y-auto mb-4">
-                    {% for item in cart_items %}
+                    
                     <div class="flex justify-between text-sm border-b border-gray-100 pb-2">
                         <div>
-                            <p class="font-medium text-gray-700">{{ item.product.name }}</p>
-                            <p class="text-xs text-gray-400">Qty: {{ item.quantity }} | Size: {{ item.size }}</p>
+                            <p class="font-medium text-gray-700"></p>
+                            <p class="text-xs text-gray-400">Qty:  | Size: </p>
                         </div>
-                        <p class="font-medium text-brand-dark">â‚¹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
+                        <p class="font-medium text-brand-dark">â‚¹</p>
                     </div>
-                    {% endfor %}
+                    
                 </div>
-                {% else %}
+                
                 <p class="text-sm text-gray-400 mb-4">Your cart is empty</p>
-                {% endif %}
+                
 
                 <div class="border-t border-gray-200 pt-4 space-y-2">
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-500">Subtotal</span>
-                        <span class="font-medium" id="subtotalDisplay">â‚¹{{ "%.2f"|format(subtotal) }}</span>
+                        <span class="font-medium" id="subtotalDisplay">â‚¹</span>
                     </div>
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-500">Shipping</span>
-                        {% if subtotal >= 2999 %}
+                        
                         <span class="text-green-600 font-medium">Free</span>
-                        {% else %}
+                        
                         <span class="font-medium">â‚¹60.00</span>
-                        {% endif %}
+                        
                     </div>
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-500">Tax</span>
@@ -116,17 +116,17 @@
                     </div>
                     <div class="flex justify-between text-lg font-bold text-brand-dark pt-2 border-t border-gray-200">
                         <span>Total</span>
-                        <span id="totalDisplay">â‚¹{{ "%.2f"|format(total) }}</span>
+                        <span id="totalDisplay">â‚¹</span>
                     </div>
-                    {% if subtotal < 2999 %}
+                    
                     <p class="text-xs text-amber-600 mt-1">
-                        <i class="fas fa-info-circle mr-1"></i> Add â‚¹{{ "%.2f"|format(2999 - subtotal) }} more for free shipping
+                        <i class="fas fa-info-circle mr-1"></i> Add â‚¹ more for free shipping
                     </p>
-                    {% else %}
+                    
                     <p class="text-xs text-green-600 mt-1">
                         <i class="fas fa-check-circle mr-1"></i> Free shipping applied
                     </p>
-                    {% endif %}
+                    
                 </div>
 
                 <div class="mt-4 pt-4 border-t border-gray-200">
@@ -198,4 +198,4 @@
         &copy; 2026 Olivintra. All Rights Reserved.
     </div>
 </footer>
-{% endblock %}
+

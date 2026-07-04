@@ -1,15 +1,15 @@
-﻿{% extends "admin/base_admin.html" %}
+﻿
 
 
 
-{% block admin_content %}
+
 <div class="mb-4 md:mb-8">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
         <div>
             <h2 class="text-2xl md:text-3xl font-serif text-brand-dark">Add Product</h2>
             <p class="text-gray-500 text-xs md:text-sm mt-1">Create a new product</p>
         </div>
-        <a href="{{ url_for('admin_products') }}" class="text-brand-accent hover:underline text-sm">
+        <a href="" class="text-brand-accent hover:underline text-sm">
             <i class="fas fa-arrow-left mr-1"></i> Back
         </a>
     </div>
@@ -77,9 +77,9 @@
                 <select name="category_id" id="category_id"
                         class="mt-1 block w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition text-sm md:text-base">
                     <option value="">Select Category</option>
-                    {% for category in categories %}
-                    <option value="{{ category.id }}">{{ category.name }}</option>
-                    {% endfor %}
+                    
+                    <option value=""></option>
+                    
                 </select>
             </div>
             
@@ -143,13 +143,13 @@
                 <div class="flex flex-wrap gap-2">
                     <!-- Image slots - show 5 slots -->
                     <div id="imageSlots" class="flex flex-wrap gap-2 w-full">
-                        {% for i in range(5) %}
+                        
                         <div class="image-slot w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400 bg-gray-50 relative" 
-                             data-slot="{{ i }}">
+                             data-slot="">
                             <i class="fas fa-plus text-xl text-gray-300"></i>
-                            <span class="absolute bottom-1 text-[8px] text-gray-400">{{ i+1 }}</span>
+                            <span class="absolute bottom-1 text-[8px] text-gray-400"></span>
                         </div>
-                        {% endfor %}
+                        
                     </div>
                     
                     <!-- Hidden file input -->
@@ -195,7 +195,7 @@
             <button type="submit" class="bg-[#4d502c] text-white px-4 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-[#3d4022] transition font-medium text-sm md:text-base w-full sm:w-auto">
                 <i class="fas fa-plus mr-2"></i> Add Product
             </button>
-            <a href="{{ url_for('admin_products') }}" class="bg-gray-200 text-gray-700 px-4 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-gray-300 transition font-medium text-sm md:text-base text-center w-full sm:w-auto">
+            <a href="" class="bg-gray-200 text-gray-700 px-4 py-2.5 md:px-6 md:py-3 rounded-lg hover:bg-gray-300 transition font-medium text-sm md:text-base text-center w-full sm:w-auto">
                 Cancel
             </a>
         </div>
@@ -491,4 +491,4 @@ input, select, textarea {
     }
 }
 </style>
-{% endblock %}
+

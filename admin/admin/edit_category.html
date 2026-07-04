@@ -1,15 +1,15 @@
-﻿{% extends "admin/base_admin.html" %}
+﻿
 
-{% block title %}Edit Category - Olivintra Admin{% endblock %}
+Edit Category - Olivintra Admin
 
-{% block admin_content %}
+
 <div class="mb-8">
     <div class="flex justify-between items-center">
         <div>
             <h2 class="text-3xl font-serif text-brand-dark">Edit Category</h2>
             <p class="text-gray-500 text-sm mt-1">Update category details</p>
         </div>
-        <a href="{{ url_for('admin_categories') }}" class="text-brand-accent hover:underline">
+        <a href="" class="text-brand-accent hover:underline">
             <i class="fas fa-arrow-left mr-1"></i> Back to Categories
         </a>
     </div>
@@ -20,14 +20,14 @@
         <!-- Category Name -->
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Category Name *</label>
-            <input type="text" name="name" id="name" required value="{{ category.name }}"
+            <input type="text" name="name" id="name" required value=""
                    class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition">
         </div>
         
         <!-- Slug -->
         <div>
             <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
-            <input type="text" name="slug" id="slug" value="{{ category.slug }}"
+            <input type="text" name="slug" id="slug" value=""
                    class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition">
             <p class="text-xs text-gray-400 mt-1">URL-friendly version of the category name</p>
         </div>
@@ -36,7 +36,7 @@
         <div>
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
             <textarea name="description" id="description" rows="3"
-                      class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition">{{ category.description }}</textarea>
+                      class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] transition"></textarea>
         </div>
         
         <!-- Category Image -->
@@ -44,21 +44,21 @@
             <label class="block text-sm font-medium text-gray-700">Category Image</label>
             <div class="mt-2 flex items-center gap-4">
                 <div id="imagePreview" class="w-32 h-32 border border-gray-300 rounded-lg overflow-hidden">
-                    {% if category.image %}
-                    <img src="{{ url_for('static', filename='uploads/' + category.image) }}" class="w-full h-full object-cover">
-                    {% else %}
+                    
+                    <img src="" class="w-full h-full object-cover">
+                    
                     <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50">
                         <i class="fas fa-image text-3xl"></i>
                     </div>
-                    {% endif %}
+                    
                 </div>
                 <div class="flex-1">
                     <input type="file" name="image" id="image" accept="image/*"
                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#4d502c] file:text-white hover:file:bg-[#3d4022] transition">
                     <p class="text-xs text-gray-400 mt-1">Leave empty to keep current image</p>
-                    {% if category.image %}
-                    <p class="text-xs text-gray-400 mt-1">Current: {{ category.image }}</p>
-                    {% endif %}
+                    
+                    <p class="text-xs text-gray-400 mt-1">Current: </p>
+                    
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
             <button type="submit" class="bg-[#4d502c] text-white px-6 py-3 rounded-lg hover:bg-[#3d4022] transition font-medium">
                 <i class="fas fa-save mr-2"></i> Update Category
             </button>
-            <a href="{{ url_for('admin_categories') }}" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 transition font-medium">
+            <a href="" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 transition font-medium">
                 Cancel
             </a>
         </div>
@@ -90,4 +90,4 @@ document.getElementById('image').addEventListener('change', function(e) {
     }
 });
 </script>
-{% endblock %}
+

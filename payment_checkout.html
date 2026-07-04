@@ -1,8 +1,8 @@
-﻿{% extends "base.html" %}
+﻿
 
 
 
-{% block content %}
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <div class="max-w-7xl mx-auto px-4 py-12">
@@ -13,31 +13,31 @@
         <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
             <h2 class="text-xl font-serif text-brand-dark mb-4">Order Summary</h2>
             <div class="space-y-3 max-h-96 overflow-y-auto">
-                {% for item in cart_items %}
+                
                 <div class="flex justify-between border-b border-gray-100 pb-3">
                     <div>
-                        <p class="font-medium">{{ item.product.name }}</p>
-                        <p class="text-sm text-gray-500">Qty: {{ item.quantity }} | Size: {{ item.size }}</p>
+                        <p class="font-medium"></p>
+                        <p class="text-sm text-gray-500">Qty:  | Size: </p>
                     </div>
-                    <p class="font-medium">â‚¹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
+                    <p class="font-medium">â‚¹</p>
                 </div>
-                {% endfor %}
+                
                 
                 <!-- Subtotal -->
                 <div class="flex justify-between pt-2 text-sm border-t border-gray-100">
                     <span class="text-gray-500">Subtotal</span>
-                    <span class="font-medium">â‚¹{{ "%.2f"|format(subtotal) }}</span>
+                    <span class="font-medium">â‚¹</span>
                 </div>
                 
                 <!-- Shipping -->
                 <div class="flex justify-between text-sm">
                     <span class="text-gray-500">Shipping</span>
                     <span>
-                        {% if subtotal >= 2999 %}
+                        
                         <span class="text-green-600 font-medium">Free</span>
-                        {% else %}
+                        
                         <span class="font-medium">â‚¹60.00</span>
-                        {% endif %}
+                        
                     </span>
                 </div>
                 
@@ -45,29 +45,29 @@
                 <div class="flex justify-between pt-3 font-bold text-lg border-t border-gray-200">
                     <span>Total</span>
                     <span class="text-[#4d502c]">
-                        â‚¹{{ "%.2f"|format(total) }}
+                        â‚¹
                     </span>
                 </div>
 
                 <!-- Free Shipping Progress -->
-                {% if subtotal < 2999 %}
+                
                 <div class="mt-3 pt-2">
                     <div class="w-full bg-gray-200 rounded-full h-2">
                         <div class="bg-[#4d502c] h-2 rounded-full transition-all duration-500" 
-                             style="width: {{ (subtotal / 2999 * 100)|round(1) if subtotal > 0 else 0 }}%"></div>
+                             style="width: %"></div>
                     </div>
                     <p class="text-xs text-amber-600 mt-1">
                         <i class="fas fa-truck mr-1"></i> 
-                        Add â‚¹{{ "%.2f"|format(2999 - subtotal) }} more for free shipping
+                        Add â‚¹ more for free shipping
                     </p>
                 </div>
-                {% else %}
+                
                 <div class="mt-3 pt-2">
                     <p class="text-xs text-green-600 font-medium">
                         <i class="fas fa-check-circle mr-1"></i> Free shipping applied
                     </p>
                 </div>
-                {% endif %}
+                
 
                 <div class="text-xs text-gray-400 text-center mt-2 pt-2 border-t border-gray-100">
                     <i class="fas fa-lock mr-1"></i> Secure payment powered by Razorpay
@@ -82,17 +82,17 @@
             <form id="paymentForm">
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                    <input type="text" id="customer_name" value="{{ order.customer_name }}" 
+                    <input type="text" id="customer_name" value="" 
                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] outline-none transition">
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                    <input type="email" id="customer_email" value="{{ order.customer_email }}" 
+                    <input type="email" id="customer_email" value="" 
                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] outline-none transition">
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                    <input type="tel" id="customer_phone" value="{{ order.customer_phone }}" 
+                    <input type="tel" id="customer_phone" value="" 
                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-[#4d502c] focus:border-[#4d502c] outline-none transition">
                 </div>
                 
@@ -117,7 +117,7 @@
                 
                 <button type="button" id="payBtn" 
                         class="w-full bg-[#4d502c] text-white py-3.5 rounded-lg hover:bg-[#3d4022] transition font-medium text-lg">
-                    <i class="fas fa-credit-card mr-2"></i> Pay â‚¹{{ "%.2f"|format(total) }}
+                    <i class="fas fa-credit-card mr-2"></i> Pay â‚¹
                 </button>
             </form>
             
@@ -201,9 +201,9 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var payBtn = document.getElementById('payBtn');
-    var orderId = Number('{{ order.id }}');
-    var totalAmount = Number('{{ total }}');
-    var subtotalAmount = Number('{{ subtotal }}');
+    var orderId = Number('');
+    var totalAmount = Number('');
+    var subtotalAmount = Number('');
     var shippingAmount = subtotalAmount >= 2999 ? 0 : 60;
     var grandTotal = totalAmount; // total already includes shipping
     var logoUrl = 'static/uploads/logo.jpg';
@@ -348,4 +348,4 @@ document.addEventListener('DOMContentLoaded', function() {
     color: #4d502c;
 }
 </style>
-{% endblock %}
+

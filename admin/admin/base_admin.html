@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>{% block title %}Olivintra Admin{% endblock %}</title>
+    <title>Olivintra Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -598,20 +598,20 @@
         }
     </style>
 </head>
-<body class="{% if is_login_page %}login-page{% endif %}">
+<body class="login-page">
     <!-- Flash Messages -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
+    
+        
             <div class="fixed top-4 right-4 z-50 w-80 sm:w-96 max-w-[calc(100vw-2rem)] space-y-2" id="flashMessages">
-                {% for category, message in messages %}
-                    <div class="flash-message flash-{{ category }} shadow-lg">
-                        <i class="fas fa-{% if category == 'success' %}check-circle{% elif category == 'error' %}exclamation-circle{% else %}info-circle{% endif %} mr-2"></i>
-                        {{ message }}
+                
+                    <div class="flash-message flash- shadow-lg">
+                        <i class="fas fa-check-circle{% elif category == 'error' %}exclamation-circleinfo-circle mr-2"></i>
+                        
                     </div>
-                {% endfor %}
+                
             </div>
-        {% endif %}
-    {% endwith %}
+        
+    
 
     <!-- Slide Overlay -->
     <div id="slideOverlay" class="slide-overlay" onclick="closeSlideMenu()"></div>
@@ -625,41 +625,41 @@
             </button>
         </div>
         <nav class="space-y-0.5">
-            <a href="/admin" class="menu-link {% if request.path == '/admin' %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-chart-pie"></i> Dashboard
             </a>
-            <a href="/admin/products" class="menu-link {% if '/products' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/products" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-box"></i> Products
-                <span class="badge" style="background:rgba(255,255,255,0.08); color:#9ca3af;">{{ total_products if total_products else 0 }}</span>
+                <span class="badge" style="background:rgba(255,255,255,0.08); color:#9ca3af;"></span>
             </a>
-            <a href="/admin/orders" class="menu-link {% if '/orders' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/orders" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-shopping-cart"></i> Orders
-                {% set pending_count = pending_orders|default(0) %}
-                <span class="badge {% if pending_count > 0 %}" style="background:#ef4444; color:#ffffff;{% else %}" style="background:rgba(255,255,255,0.08); color:#9ca3af;{% endif %}">
-                    {{ pending_count }}
+                
+                <span class="badge " style="background:#ef4444; color:#ffffff;" style="background:rgba(255,255,255,0.08); color:#9ca3af;">
+                    
                 </span>
             </a>
-            <a href="/admin/categories" class="menu-link {% if '/categories' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/categories" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-tags"></i> Categories
             </a>
-            <a href="/admin/stock-management" class="menu-link {% if '/stock-management' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/stock-management" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-boxes"></i> Stock Management
             </a>
-            <a href="/admin/hero" class="menu-link {% if '/hero' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/hero" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-image"></i> Hero Slides
             </a>
-            <a href="/admin/reviews" class="menu-link {% if '/reviews' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/reviews" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-star"></i> Reviews
-                {% set review_count = pending_reviews|default(0) %}
-                <span class="badge {% if review_count > 0 %}" style="background:#f59e0b; color:#ffffff;{% else %}" style="background:rgba(255,255,255,0.08); color:#9ca3af;{% endif %}">
-                    {{ review_count }}
+                
+                <span class="badge " style="background:#f59e0b; color:#ffffff;" style="background:rgba(255,255,255,0.08); color:#9ca3af;">
+                    
                 </span>
             </a>
-            <a href="/admin/messages" class="menu-link {% if '/messages' in request.path %}active{% endif %}" onclick="closeSlideMenu()">
+            <a href="/admin/messages" class="menu-link active" onclick="closeSlideMenu()">
                 <i class="fas fa-envelope"></i> Messages
-                {% set msg_count = unread_messages|default(0) %}
-                <span class="badge {% if msg_count > 0 %}" style="background:#3b82f6; color:#ffffff;{% else %}" style="background:rgba(255,255,255,0.08); color:#9ca3af;{% endif %}">
-                    {{ msg_count }}
+                
+                <span class="badge " style="background:#3b82f6; color:#ffffff;" style="background:rgba(255,255,255,0.08); color:#9ca3af;">
+                    
                 </span>
             </a>
             <hr style="border-color:rgba(255,255,255,0.06); margin:12px 0;">
@@ -685,36 +685,36 @@
             </div>
             
             <nav class="space-y-0.5">
-                <a href="/admin" class="sidebar-link {% if request.path == '/admin' %}active{% endif %}">
+                <a href="/admin" class="sidebar-link active">
                     <i class="fas fa-chart-pie"></i> Dashboard
                 </a>
-                <a href="/admin/products" class="sidebar-link {% if '/products' in request.path %}active{% endif %}">
+                <a href="/admin/products" class="sidebar-link active">
                     <i class="fas fa-box"></i> Products
-                    <span class="badge">{{ total_products if total_products else 0 }}</span>
+                    <span class="badge"></span>
                 </a>
-                <a href="/admin/orders" class="sidebar-link {% if '/orders' in request.path %}active{% endif %}">
+                <a href="/admin/orders" class="sidebar-link active">
                     <i class="fas fa-shopping-cart"></i> Orders
-                    {% set pending_count = pending_orders|default(0) %}
-                    <span class="badge {% if pending_count > 0 %}alert{% endif %}">{{ pending_count }}</span>
+                    
+                    <span class="badge alert"></span>
                 </a>
-                <a href="/admin/categories" class="sidebar-link {% if '/categories' in request.path %}active{% endif %}">
+                <a href="/admin/categories" class="sidebar-link active">
                     <i class="fas fa-tags"></i> Categories
                 </a>
-                <a href="/admin/stock-management" class="sidebar-link {% if '/stock-management' in request.path %}active{% endif %}">
+                <a href="/admin/stock-management" class="sidebar-link active">
                     <i class="fas fa-boxes"></i> Stock Management
                 </a>
-                <a href="/admin/hero" class="sidebar-link {% if '/hero' in request.path %}active{% endif %}">
+                <a href="/admin/hero" class="sidebar-link active">
                     <i class="fas fa-image"></i> Hero Slides
                 </a>
-                <a href="/admin/reviews" class="sidebar-link {% if '/reviews' in request.path %}active{% endif %}">
+                <a href="/admin/reviews" class="sidebar-link active">
                     <i class="fas fa-star"></i> Reviews
-                    {% set review_count = pending_reviews|default(0) %}
-                    <span class="badge {% if review_count > 0 %}warning{% endif %}">{{ review_count }}</span>
+                    
+                    <span class="badge warning"></span>
                 </a>
-                <a href="/admin/messages" class="sidebar-link {% if '/messages' in request.path %}active{% endif %}">
+                <a href="/admin/messages" class="sidebar-link active">
                     <i class="fas fa-envelope"></i> Messages
-                    {% set msg_count = unread_messages|default(0) %}
-                    <span class="badge {% if msg_count > 0 %}info{% endif %}">{{ msg_count }}</span>
+                    
+                    <span class="badge info"></span>
                 </a>
                 <hr style="border-color:rgba(255,255,255,0.06); margin:12px 0;">
                 <a href="/" target="_blank" class="sidebar-link" style="color:#6b7280;">
@@ -740,7 +740,7 @@
             </div>
             
             <!-- Content -->
-            {% block admin_content %}{% endblock %}
+            
         </div>
     </div>
 
@@ -879,6 +879,6 @@
 
         console.log('âœ¨ Admin panel loaded - Elegant mobile design');
     </script>
-    {% block extra_js %}{% endblock %}
+    
     <!-- API JavaScript -->`n    <script src="static/js/api.js"></script>`n</body>
 </html>

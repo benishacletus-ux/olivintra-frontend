@@ -1,12 +1,12 @@
-﻿{% extends "admin/base_admin.html" %}
+﻿
 
-{% block title %}Dashboard - Olivintra Admin{% endblock %}
+Dashboard - Olivintra Admin
 
-{% block admin_content %}
+
 <div class="flex items-center justify-between mb-8">
     <div>
         <h2 class="text-3xl font-serif text-brand-dark">Dashboard</h2>
-        <p class="text-gray-500 text-sm mt-1">Welcome back, {{ current_user.username }}! Here's what's happening with your store.</p>
+        <p class="text-gray-500 text-sm mt-1">Welcome back, ! Here's what's happening with your store.</p>
     </div>
     <div class="flex items-center gap-3">
         <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
@@ -70,7 +70,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-500 text-xs uppercase tracking-wider font-semibold">Products</p>
-                <p class="text-2xl font-bold text-brand-dark mt-1" id="totalProducts">{{ total_products|default(0) }}</p>
+                <p class="text-2xl font-bold text-brand-dark mt-1" id="totalProducts"></p>
             </div>
             <div class="bg-purple-100 p-3 rounded-lg">
                 <i class="fas fa-box text-purple-600 text-xl"></i>
@@ -240,7 +240,7 @@
 
 <!-- Quick Action Cards -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-    <a href="{{ url_for('admin_stock_management') }}" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
+    <a href="" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-500 text-xs uppercase tracking-wider font-semibold">Stock Management</p>
@@ -253,7 +253,7 @@
         <p class="text-xs text-gray-400 mt-2">Quickly update product availability</p>
     </a>
 
-    <a href="{{ url_for('admin_products') }}" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
+    <a href="" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-500 text-xs uppercase tracking-wider font-semibold">Products</p>
@@ -266,7 +266,7 @@
         <p class="text-xs text-gray-400 mt-2">Add, edit or remove products</p>
     </a>
 
-    <a href="{{ url_for('admin_orders') }}" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
+    <a href="" class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-500 text-xs uppercase tracking-wider font-semibold">Orders</p>
@@ -893,4 +893,4 @@ canvas {
     border-radius: 10px;
 }
 </style>
-{% endblock %}
+

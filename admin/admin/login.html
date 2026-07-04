@@ -1,8 +1,8 @@
-﻿{% extends "base.html" %}
+﻿
 
 
 
-{% block content %}
+
 <style>
     /* Hide header elements from base.html */
     .bg-brand-dark.text-white.text-\[10px\] {
@@ -694,18 +694,18 @@
         <p class="login-subtitle">Access the Olivintra Admin Panel</p>
         
         <!-- Flash Messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
+        
+            
                 <div style="margin-top: 1.5rem;">
-                    {% for category, message in messages %}
-                        <div class="flash-message flash-{{ category }}">
-                            <i class="fas fa-{% if category == 'success' %}check-circle{% elif category == 'error' %}exclamation-circle{% else %}info-circle{% endif %}"></i>
-                            <span>{{ message }}</span>
+                    
+                        <div class="flash-message flash-">
+                            <i class="fas fa-check-circle{% elif category == 'error' %}exclamation-circleinfo-circle"></i>
+                            <span></span>
                         </div>
-                    {% endfor %}
+                    
                 </div>
-            {% endif %}
-        {% endwith %}
+            
+        
         
         <!-- Login Form -->
         <form method="POST" id="loginForm">
@@ -791,7 +791,7 @@
             <button class="btn-cancel" id="modalCancelBtn">
                 <i class="fas fa-times" style="margin-right: 0.35rem;"></i> Cancel
             </button>
-            <a href="{{ url_for('admin_logout') }}" class="btn-logout" id="modalConfirmBtn">
+            <a href="" class="btn-logout" id="modalConfirmBtn">
                 <i class="fas fa-sign-out-alt"></i> Yes, Logout
             </a>
         </div>
@@ -953,4 +953,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-{% endblock %}
+
