@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex-1">
                     <h3 class="font-semibold text-brand-dark">{{ item.product.name }}</h3>
-                    <p class="text-sm text-gray-500">₹{{ "%.2f"|format(item.product.price) }}</p>
+                    <p class="text-sm text-gray-500">â‚¹{{ "%.2f"|format(item.product.price) }}</p>
                     
                     <!-- Size Display -->
                     {% if item.size and item.size != 'N/A' %}
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <p class="font-semibold">₹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
+                    <p class="font-semibold">â‚¹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
                 </div>
             </div>
             {% endfor %}
@@ -54,7 +54,7 @@
                 <div class="space-y-2 border-b border-gray-200 pb-4">
                     <div class="flex justify-between text-sm">
                         <span>Subtotal</span>
-                        <span>₹{{ "%.2f"|format(total) }}</span>
+                        <span>â‚¹{{ "%.2f"|format(total) }}</span>
                     </div>
                     <div class="flex justify-between text-sm">
                         <span>Shipping</span>
@@ -62,7 +62,7 @@
                             {% if total >= 2999 %}
                             <span class="text-green-600 font-medium">Free</span>
                             {% else %}
-                            ₹60.00
+                            â‚¹60.00
                             {% endif %}
                         </span>
                     </div>
@@ -71,9 +71,9 @@
                     <span>Total</span>
                     <span>
                         {% if total >= 2999 %}
-                        ₹{{ "%.2f"|format(total) }}
+                        â‚¹{{ "%.2f"|format(total) }}
                         {% else %}
-                        ₹{{ "%.2f"|format(total + 60) }}
+                        â‚¹{{ "%.2f"|format(total + 60) }}
                         {% endif %}
                     </span>
                 </div>
@@ -87,7 +87,7 @@
                     </div>
                     <p class="text-xs text-amber-600 mt-1">
                         <i class="fas fa-truck mr-1"></i> 
-                        Add ₹{{ "%.2f"|format(2999 - total) }} more for free shipping
+                        Add â‚¹{{ "%.2f"|format(2999 - total) }} more for free shipping
                     </p>
                 </div>
                 {% else %}

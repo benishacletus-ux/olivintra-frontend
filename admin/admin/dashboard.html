@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html" %}
+﻿{% extends "admin/base_admin.html" %}
 
 {% block title %}Dashboard - Olivintra Admin{% endblock %}
 
@@ -25,7 +25,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-500 text-xs uppercase tracking-wider font-semibold">Total Revenue</p>
-                <p class="text-2xl font-bold text-brand-dark mt-1" id="totalRevenue">₹0.00</p>
+                <p class="text-2xl font-bold text-brand-dark mt-1" id="totalRevenue">â‚¹0.00</p>
             </div>
             <div class="bg-green-100 p-3 rounded-lg">
                 <i class="fas fa-rupee-sign text-green-600 text-xl"></i>
@@ -77,7 +77,7 @@
             </div>
         </div>
         <div class="mt-2 text-xs text-gray-400">
-            <a href="/admin/products" class="text-purple-600 hover:underline">Manage products →</a>
+            <a href="/admin/products" class="text-purple-600 hover:underline">Manage products â†’</a>
         </div>
     </div>
 </div>
@@ -88,7 +88,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-600 text-xs uppercase tracking-wider font-semibold">Today's Revenue</p>
-                <p class="text-2xl font-bold text-green-700 mt-1" id="todayRevenue">₹0.00</p>
+                <p class="text-2xl font-bold text-green-700 mt-1" id="todayRevenue">â‚¹0.00</p>
             </div>
             <div class="bg-green-200 p-3 rounded-lg">
                 <i class="fas fa-calendar-day text-green-700 text-xl"></i>
@@ -103,7 +103,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-600 text-xs uppercase tracking-wider font-semibold">Yesterday's Revenue</p>
-                <p class="text-2xl font-bold text-blue-700 mt-1" id="yesterdayRevenue">₹0.00</p>
+                <p class="text-2xl font-bold text-blue-700 mt-1" id="yesterdayRevenue">â‚¹0.00</p>
             </div>
             <div class="bg-blue-200 p-3 rounded-lg">
                 <i class="fas fa-calendar-day text-blue-700 text-xl"></i>
@@ -118,7 +118,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-600 text-xs uppercase tracking-wider font-semibold">This Month Revenue</p>
-                <p class="text-2xl font-bold text-purple-700 mt-1" id="monthRevenue">₹0.00</p>
+                <p class="text-2xl font-bold text-purple-700 mt-1" id="monthRevenue">â‚¹0.00</p>
             </div>
             <div class="bg-purple-200 p-3 rounded-lg">
                 <i class="fas fa-calendar-alt text-purple-700 text-xl"></i>
@@ -133,7 +133,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-gray-600 text-xs uppercase tracking-wider font-semibold">This Year Revenue</p>
-                <p class="text-2xl font-bold text-amber-700 mt-1" id="yearRevenue">₹0.00</p>
+                <p class="text-2xl font-bold text-amber-700 mt-1" id="yearRevenue">â‚¹0.00</p>
             </div>
             <div class="bg-amber-200 p-3 rounded-lg">
                 <i class="fas fa-calendar text-amber-700 text-xl"></i>
@@ -172,7 +172,7 @@
     <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 lg:col-span-2">
         <div class="flex justify-between items-center mb-4">
             <h3 class="font-semibold text-brand-dark text-lg">Order Status Distribution</h3>
-            <a href="/admin/orders" class="text-sm text-brand-accent hover:underline">View All →</a>
+            <a href="/admin/orders" class="text-sm text-brand-accent hover:underline">View All â†’</a>
         </div>
         
         <div class="space-y-4">
@@ -232,7 +232,7 @@
             </div>
             <div class="flex justify-between items-center">
                 <span class="text-sm text-gray-600">Total Revenue</span>
-                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold" id="dashboardTotalRevenue">₹0.00</span>
+                <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold" id="dashboardTotalRevenue">â‚¹0.00</span>
             </div>
         </div>
     </div>
@@ -381,10 +381,10 @@ function updateDashboard(data) {
     if (!data) return;
     
     // Update revenue metrics
-    document.getElementById('todayRevenue').textContent = '₹' + (data.today_revenue || 0).toFixed(2);
-    document.getElementById('yesterdayRevenue').textContent = '₹' + (data.yesterday_revenue || 0).toFixed(2);
-    document.getElementById('monthRevenue').textContent = '₹' + (data.month_revenue || 0).toFixed(2);
-    document.getElementById('yearRevenue').textContent = '₹' + (data.year_revenue || 0).toFixed(2);
+    document.getElementById('todayRevenue').textContent = 'â‚¹' + (data.today_revenue || 0).toFixed(2);
+    document.getElementById('yesterdayRevenue').textContent = 'â‚¹' + (data.yesterday_revenue || 0).toFixed(2);
+    document.getElementById('monthRevenue').textContent = 'â‚¹' + (data.month_revenue || 0).toFixed(2);
+    document.getElementById('yearRevenue').textContent = 'â‚¹' + (data.year_revenue || 0).toFixed(2);
     
     document.getElementById('todayOrders').textContent = (data.today_orders || 0) + ' orders';
     document.getElementById('yesterdayOrders').textContent = (data.yesterday_orders || 0) + ' orders';
@@ -392,7 +392,7 @@ function updateDashboard(data) {
     document.getElementById('yearOrders').textContent = (data.year_orders || 0) + ' orders';
     
     // Update main stats
-    document.getElementById('totalRevenue').textContent = '₹' + (data.total_revenue || 0).toFixed(2);
+    document.getElementById('totalRevenue').textContent = 'â‚¹' + (data.total_revenue || 0).toFixed(2);
     document.getElementById('totalOrders').textContent = data.total_orders || 0;
     document.getElementById('totalOrdersText').textContent = (data.total_orders || 0) + ' orders';
     document.getElementById('pendingOrders').textContent = data.pending_orders || 0;
@@ -400,9 +400,9 @@ function updateDashboard(data) {
     // Update pending status
     var pendingStatus = document.getElementById('pendingStatus');
     if (data.pending_orders > 0) {
-        pendingStatus.innerHTML = '<span class="text-orange-500">⚠️ ' + data.pending_orders + ' orders need processing</span>';
+        pendingStatus.innerHTML = '<span class="text-orange-500">âš ï¸ ' + data.pending_orders + ' orders need processing</span>';
     } else {
-        pendingStatus.innerHTML = '<span class="text-green-600">✅ All orders processed</span>';
+        pendingStatus.innerHTML = '<span class="text-green-600">âœ… All orders processed</span>';
     }
     
     // Update order growth
@@ -435,7 +435,7 @@ function updateDashboard(data) {
     document.getElementById('dashboardUnreadMessages').textContent = data.unread_messages || 0;
     document.getElementById('dashboardPendingReviews').textContent = data.pending_reviews || 0;
     document.getElementById('dashboardPendingOrders').textContent = data.pending_orders || 0;
-    document.getElementById('dashboardTotalRevenue').textContent = '₹' + (data.total_revenue || 0).toFixed(2);
+    document.getElementById('dashboardTotalRevenue').textContent = 'â‚¹' + (data.total_revenue || 0).toFixed(2);
     
     // Update quick order status
     var quickStatus = document.getElementById('quickOrderStatus');
@@ -500,7 +500,7 @@ function updateRecentOrders(orders) {
                         ${orderNumber}
                     </a>
                     <p class="text-xs text-gray-500">${customerName}</p>
-                    <p class="text-xs text-gray-400">₹${totalAmount}</p>
+                    <p class="text-xs text-gray-400">â‚¹${totalAmount}</p>
                 </div>
                 <div class="text-right">
                     <span class="status-badge ${statusClass} px-2 py-1 rounded-full text-xs font-semibold">
@@ -640,7 +640,7 @@ function initCharts() {
         data: {
             labels: days,
             datasets: [{
-                label: 'Revenue (₹)',
+                label: 'Revenue (â‚¹)',
                 data: defaultData,
                 backgroundColor: 'rgba(140, 98, 57, 0.1)',
                 borderColor: '#8c6239',
@@ -669,7 +669,7 @@ function initCharts() {
                     },
                     ticks: {
                         callback: function(value) {
-                            return '₹' + value.toLocaleString();
+                            return 'â‚¹' + value.toLocaleString();
                         }
                     }
                 },
@@ -703,11 +703,11 @@ function refreshAnalytics() {
         if (messagesData) updateRecentMessages(messagesData);
         
         icon.classList.remove('fa-spin');
-        showToast('✅ Dashboard updated successfully!');
+        showToast('âœ… Dashboard updated successfully!');
     })
     .catch(function() {
         icon.classList.remove('fa-spin');
-        showToast('❌ Error refreshing dashboard', 'error');
+        showToast('âŒ Error refreshing dashboard', 'error');
     });
 }
 
@@ -806,7 +806,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 15000);
 });
 
-console.log('📊 Real-time Admin Dashboard loaded successfully');
+console.log('ðŸ“Š Real-time Admin Dashboard loaded successfully');
 </script>
 
 <style>

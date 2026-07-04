@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html" %}
+﻿{% extends "admin/base_admin.html" %}
 
 {% block title %}Stock Management - Olivintra Admin{% endblock %}
 
@@ -54,10 +54,10 @@
                 <div>
                     <p class="text-sm font-medium text-blue-800">How to manage stock:</p>
                     <ul class="text-sm text-blue-700 mt-1 space-y-1">
-                        <li>• <span class="font-medium text-green-600">Green toggle (ON)</span> = Product is <span class="font-medium">In Stock</span></li>
-                        <li>• <span class="font-medium text-gray-500">Gray toggle (OFF)</span> = Product is <span class="font-medium text-red-600">Out of Stock</span></li>
-                        <li>• Click toggle to update status instantly</li>
-                        <li>• Changes are saved automatically to the database</li>
+                        <li>â€¢ <span class="font-medium text-green-600">Green toggle (ON)</span> = Product is <span class="font-medium">In Stock</span></li>
+                        <li>â€¢ <span class="font-medium text-gray-500">Gray toggle (OFF)</span> = Product is <span class="font-medium text-red-600">Out of Stock</span></li>
+                        <li>â€¢ Click toggle to update status instantly</li>
+                        <li>â€¢ Changes are saved automatically to the database</li>
                     </ul>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                         </div>
                         
                         <!-- Price -->
-                        <div class="font-medium text-[#4d502c]">₹{{ "%.2f"|format(product.price) }}</div>
+                        <div class="font-medium text-[#4d502c]">â‚¹{{ "%.2f"|format(product.price) }}</div>
                         
                         <!-- Stock -->
                         <div>
@@ -294,17 +294,17 @@ function saveChanges() {
     .then(function(data) {
         loading.style.display = 'none';
         if (data.success) {
-            showStatus('✅ ' + data.message, 'success');
+            showStatus('âœ… ' + data.message, 'success');
             pendingChanges = {};
             // Update stats
             updateStats();
         } else {
-            showStatus('❌ Error: ' + (data.error || 'Failed to save'), 'error');
+            showStatus('âŒ Error: ' + (data.error || 'Failed to save'), 'error');
         }
     })
     .catch(function(error) {
         loading.style.display = 'none';
-        showStatus('❌ Error: ' + error.message, 'error');
+        showStatus('âŒ Error: ' + error.message, 'error');
         console.error('Error:', error);
     });
 }
@@ -347,7 +347,7 @@ function bulkUpdate(inStock) {
 
 function resetToCurrent() {
     if (Object.keys(pendingChanges).length === 0) {
-        showStatus('ℹ️ No changes to reset', 'info');
+        showStatus('â„¹ï¸ No changes to reset', 'info');
         return;
     }
     
@@ -356,7 +356,7 @@ function resetToCurrent() {
 }
 
 function refreshStock() {
-    showStatus('🔄 Refreshing...', 'info');
+    showStatus('ðŸ”„ Refreshing...', 'info');
     window.location.reload();
 }
 
@@ -424,12 +424,12 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log('💡 Keyboard shortcuts:');
+console.log('ðŸ’¡ Keyboard shortcuts:');
 console.log('  Ctrl+S  - Save all changes');
 console.log('  Escape  - Reset changes');
 console.log('  Click toggles - Auto-save after 1.5 seconds');
 
 // Initialize - show welcome message
-console.log('✅ Stock Management loaded successfully');
+console.log('âœ… Stock Management loaded successfully');
 </script>
 {% endblock %}

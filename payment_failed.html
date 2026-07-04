@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -14,8 +14,8 @@
         
         <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p class="text-sm text-gray-600">Order #: <strong class="text-brand-dark">{{ order.order_number }}</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Amount: <strong>₹{{ "%.2f"|format(order.total_amount) }}</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Status: <span class="text-red-600 font-semibold">✗ Failed</span></p>
+            <p class="text-sm text-gray-600 mt-1">Amount: <strong>â‚¹{{ "%.2f"|format(order.total_amount) }}</strong></p>
+            <p class="text-sm text-gray-600 mt-1">Status: <span class="text-red-600 font-semibold">âœ— Failed</span></p>
         </div>
         
         <div class="flex gap-3 mt-6">
@@ -30,10 +30,10 @@
         <div class="mt-6 pt-4 border-t border-gray-200">
             <p class="text-xs text-gray-400">Possible reasons for failure:</p>
             <ul class="text-xs text-gray-400 mt-1 space-y-1">
-                <li>• Insufficient balance in your account</li>
-                <li>• Invalid card details</li>
-                <li>• Network connection issue</li>
-                <li>• Bank declined the transaction</li>
+                <li>â€¢ Insufficient balance in your account</li>
+                <li>â€¢ Invalid card details</li>
+                <li>â€¢ Network connection issue</li>
+                <li>â€¢ Bank declined the transaction</li>
             </ul>
         </div>
     </div>

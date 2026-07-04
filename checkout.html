@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -89,7 +89,7 @@
                             <p class="font-medium text-gray-700">{{ item.product.name }}</p>
                             <p class="text-xs text-gray-400">Qty: {{ item.quantity }} | Size: {{ item.size }}</p>
                         </div>
-                        <p class="font-medium text-brand-dark">₹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
+                        <p class="font-medium text-brand-dark">â‚¹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -100,14 +100,14 @@
                 <div class="border-t border-gray-200 pt-4 space-y-2">
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-500">Subtotal</span>
-                        <span class="font-medium" id="subtotalDisplay">₹{{ "%.2f"|format(subtotal) }}</span>
+                        <span class="font-medium" id="subtotalDisplay">â‚¹{{ "%.2f"|format(subtotal) }}</span>
                     </div>
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-500">Shipping</span>
                         {% if subtotal >= 2999 %}
                         <span class="text-green-600 font-medium">Free</span>
                         {% else %}
-                        <span class="font-medium">₹60.00</span>
+                        <span class="font-medium">â‚¹60.00</span>
                         {% endif %}
                     </div>
                     <div class="flex justify-between text-sm">
@@ -116,11 +116,11 @@
                     </div>
                     <div class="flex justify-between text-lg font-bold text-brand-dark pt-2 border-t border-gray-200">
                         <span>Total</span>
-                        <span id="totalDisplay">₹{{ "%.2f"|format(total) }}</span>
+                        <span id="totalDisplay">â‚¹{{ "%.2f"|format(total) }}</span>
                     </div>
                     {% if subtotal < 2999 %}
                     <p class="text-xs text-amber-600 mt-1">
-                        <i class="fas fa-info-circle mr-1"></i> Add ₹{{ "%.2f"|format(2999 - subtotal) }} more for free shipping
+                        <i class="fas fa-info-circle mr-1"></i> Add â‚¹{{ "%.2f"|format(2999 - subtotal) }} more for free shipping
                     </p>
                     {% else %}
                     <p class="text-xs text-green-600 mt-1">

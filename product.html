@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block content %}
 
@@ -99,10 +99,10 @@
             </div>
 
             <div>
-                <span class="text-2xl font-bold text-brand-dark">₹{{ "%.2f"|format(product.price) }}</span>
+                <span class="text-2xl font-bold text-brand-dark">â‚¹{{ "%.2f"|format(product.price) }}</span>
                 {% if product.original_price %}
-                <span class="text-sm text-gray-400 line-through ml-2">₹{{ "%.2f"|format(product.original_price) }}</span>
-                <span class="text-sm text-red-500 ml-2">Save ₹{{ "%.2f"|format(product.original_price - product.price) }}</span>
+                <span class="text-sm text-gray-400 line-through ml-2">â‚¹{{ "%.2f"|format(product.original_price) }}</span>
+                <span class="text-sm text-red-500 ml-2">Save â‚¹{{ "%.2f"|format(product.original_price - product.price) }}</span>
                 {% endif %}
             </div>
 
@@ -137,7 +137,7 @@
                     {% endfor %}
                 </div>
                 <input type="hidden" name="selected_size" id="selectedSize" value="">
-                <p class="text-xs text-red-500 mt-1 hidden" id="sizeError">⚠️ Please select a size before adding to cart</p>
+                <p class="text-xs text-red-500 mt-1 hidden" id="sizeError">âš ï¸ Please select a size before adding to cart</p>
                 <p class="text-xs text-gray-400 mt-1">Please select a size to add to cart</p>
             </div>
             {% endif %}
@@ -170,7 +170,7 @@
                 <input type="hidden" name="quantity" id="quantityInput" value="1">
                 
                 <div class="flex items-center border border-gray-300 rounded" id="qty-control">
-                    <button type="button" class="px-3 py-2 text-gray-600 hover:bg-gray-100 qty-btn" data-delta="-1">−</button>
+                    <button type="button" class="px-3 py-2 text-gray-600 hover:bg-gray-100 qty-btn" data-delta="-1">âˆ’</button>
                     <input type="number" name="quantity_display" id="quantity-display" value="1" min="1" max="{{ product.stock }}"
                         class="w-12 text-center py-2 border-0 focus:outline-none" readonly>
                     <button type="button" class="px-3 py-2 text-gray-600 hover:bg-gray-100 qty-btn" data-delta="1">+</button>
@@ -193,7 +193,7 @@
 
             <!-- WhatsApp Inquiry -->
             <div class="border-t border-gray-200 pt-4">
-                <a href="{{ whatsapp_url }}?text=Hi! I'm interested in {{ product.name }} (₹{{ "%.2f"|format(product.price) }}) - {{ url_for('product_detail', slug=product.slug, _external=True) }}" 
+                <a href="{{ whatsapp_url }}?text=Hi! I'm interested in {{ product.name }} (â‚¹{{ "%.2f"|format(product.price) }}) - {{ url_for('product_detail', slug=product.slug, _external=True) }}" 
                    target="_blank" 
                    class="inline-flex items-center gap-2 text-[#4d502c] hover:text-[#3d4022] transition text-sm">
                     <i class="fab fa-whatsapp text-xl"></i>
@@ -202,7 +202,7 @@
             </div>
 
             <div class="border-t border-gray-200 pt-4 text-sm text-gray-500 space-y-1">
-                <p><i class="fas fa-truck mr-2"></i> Free shipping on orders above ₹2999</p>
+                <p><i class="fas fa-truck mr-2"></i> Free shipping on orders above â‚¹2999</p>
                 <p><i class="fas fa-undo mr-2"></i> Easy returns within 7 days</p>
                 <p><i class="fas fa-lock mr-2"></i> Secure payment</p>
             </div>
@@ -317,7 +317,7 @@
                         {% endif %}
                     </div>
                     <h4 class="text-[11px] sm:text-xs font-bold uppercase text-brand-dark tracking-wide truncate">{{ related_product.name }}</h4>
-                    <p class="text-[11px] sm:text-xs text-gray-500 font-medium">₹{{ "%.2f"|format(related_product.price) }}</p>
+                    <p class="text-[11px] sm:text-xs text-gray-500 font-medium">â‚¹{{ "%.2f"|format(related_product.price) }}</p>
                     <p class="text-[9px] {% if related_product.in_stock %}text-green-600{% else %}text-red-600{% endif %}">
                         {% if related_product.in_stock %}<i class="fas fa-check-circle"></i> In Stock{% else %}<i class="fas fa-times-circle"></i> Out of Stock{% endif %}
                     </p>
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (sizeOptions.length > 0 && !selectedSize) {
                 e.preventDefault();
                 sizeError.classList.remove('hidden');
-                sizeError.textContent = '⚠️ Please select a size before adding to cart';
+                sizeError.textContent = 'âš ï¸ Please select a size before adding to cart';
                 
                 // Scroll to size selection
                 document.getElementById('sizeContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -536,7 +536,7 @@ function notifyMe(productName) {
     var whatsappUrl = 'https://wa.me/919037392700?text=' + encodeURIComponent(message);
     window.open(whatsappUrl, '_blank');
     
-    showNotification('✅ We\'ll notify you when "' + productName + '" is back in stock!');
+    showNotification('âœ… We\'ll notify you when "' + productName + '" is back in stock!');
 }
 
 // ==================== NOTIFICATION SYSTEM ====================

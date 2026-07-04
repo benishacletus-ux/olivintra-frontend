@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <title>Olivintra - Premium Ethnic Wear in Kerala | Online Fashion Store</title>
     {% endblock %}
     
-    <meta name="description" content="{% block meta_description %}Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. ✓ Secure Online Payments ✓ Free shipping above ₹4999 ✓ Easy returns. WhatsApp: +91 9037392700{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Olivintra - Premium ethnic wear store in Kerala. Shop kurtis, sarees, lehengas online. âœ“ Secure Online Payments âœ“ Free shipping above â‚¹4999 âœ“ Easy returns. WhatsApp: +91 9037392700{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}Olivintra, ethnic wear Kerala, women's clothing Kerala, kurtis online, sarees online, lehengas, salwar suits, Indian fashion Kerala, Kerala ethnic wear, online fashion Kerala, buy kurtis online Kerala, women's ethnic wear Kerala, premium clothing Kerala, quality fashion Kerala, secure online payment, WhatsApp shopping Kerala{% endblock %}">
     <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}">
     <link rel="canonical" href="{% block canonical %}{{ request.url }}{% endblock %}">
@@ -856,7 +856,7 @@
 
     <!-- Slide Menu -->
     <div id="slideMenu" class="slide-menu">
-        <button id="closeMenuBtn" class="close-btn" aria-label="Close menu">✕</button>
+        <button id="closeMenuBtn" class="close-btn" aria-label="Close menu">âœ•</button>
         <a href="/">Home</a>
         <a href="/shop">Products</a>
         <a href="/cart">Cart</a>
@@ -875,7 +875,7 @@
 
     <!-- Free Shipping Banner -->
     <div class="bg-brand-dark text-white text-[10px] sm:text-xs tracking-widest text-center py-1.5 px-4 uppercase font-medium">
-        Free Shipping on Orders Above ₹2999 | Online Payments Only
+        Free Shipping on Orders Above â‚¹2999 | Online Payments Only
     </div>
 
     <!-- SINGLE HEADER -->
@@ -1013,7 +1013,7 @@
                         <i class="fas fa-robot text-white text-sm"></i>
                     </div>
                     <div class="bg-white rounded-lg px-4 py-2 shadow-sm max-w-[85%]">
-                        <p class="text-sm text-gray-700">Welcome to Olivintra! 👋 I'm your AI shopping assistant. Ask me about products, shipping, returns, or anything about our store!</p>
+                        <p class="text-sm text-gray-700">Welcome to Olivintra! ðŸ‘‹ I'm your AI shopping assistant. Ask me about products, shipping, returns, or anything about our store!</p>
                     </div>
                 </div>
             </div>
@@ -1145,7 +1145,7 @@
             window.open(whatsappUrl, '_blank');
             
             // Also show a confirmation
-            showNotification(`✅ We'll notify you when "${productName}" is back in stock!`);
+            showNotification(`âœ… We'll notify you when "${productName}" is back in stock!`);
         }
 
         // ==================== NOTIFICATION SYSTEM ====================
@@ -1303,7 +1303,7 @@
             function getAIResponse(message) {
                 const lowerMsg = message.toLowerCase();
                 if (lowerMsg.includes('stock') || lowerMsg.includes('available') || lowerMsg.includes('restock')) {
-                    return Promise.resolve("I understand you're looking for product availability. Our admin can update stock status instantly. If an item shows 'Out of Stock', click the 'Notify Me' button and we'll alert you when it's back! 🛍️");
+                    return Promise.resolve("I understand you're looking for product availability. Our admin can update stock status instantly. If an item shows 'Out of Stock', click the 'Notify Me' button and we'll alert you when it's back! ðŸ›ï¸");
                 }
                 
                 const API_KEY = 'AIzaSyC7jw8FIZGYoIYMY-ABhfAuPD7At8Tdit8';
@@ -1318,7 +1318,7 @@
                 
                 Key information about Olivintra:
                 - Products: Kurtis, Sarees, Lehengas, Salwar Suits, Designer Dresses
-                - Free shipping on orders above ₹2999
+                - Free shipping on orders above â‚¹2999
                 - 7-day easy return policy
                 - Online payments only (No COD)
                 - WhatsApp support: +91 9037392700
@@ -1376,13 +1376,13 @@
                 const lowerMsg = message.toLowerCase();
                 
                 if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
-                    return "Hello! 👋 Welcome to Olivintra! How can I help you today?";
+                    return "Hello! ðŸ‘‹ Welcome to Olivintra! How can I help you today?";
                 }
                 if (lowerMsg.includes('product') || lowerMsg.includes('kurti') || lowerMsg.includes('top') || lowerMsg.includes('saree')) {
                     return "We offer beautiful ethnic wear including kurtis, sarees, tops, and kurti material. Browse our collection at /shop";
                 }
                 if (lowerMsg.includes('shipping') || lowerMsg.includes('delivery')) {
-                    return "We provide free shipping on orders above ₹2999. Delivery takes 5-7 business days across India.";
+                    return "We provide free shipping on orders above â‚¹2999. Delivery takes 5-7 business days across India.";
                 }
                 if (lowerMsg.includes('return') || lowerMsg.includes('exchange')) {
                     return "Easy returns within 7 days of delivery. Products must be unused with tags intact.";
@@ -1406,10 +1406,10 @@
                     return "Our admin manages product stock. If a product is out of stock, click the 'Notify Me' button and we'll alert you when it's back!";
                 }
                 if (lowerMsg.includes('thank')) {
-                    return "You're welcome! 😊 Feel free to ask anything else.";
+                    return "You're welcome! ðŸ˜Š Feel free to ask anything else.";
                 }
                 if (lowerMsg.includes('bye') || lowerMsg.includes('goodbye')) {
-                    return "Goodbye! 👋 Have a wonderful day! Come back anytime.";
+                    return "Goodbye! ðŸ‘‹ Have a wonderful day! Come back anytime.";
                 }
                 
                 return "I'm here to help! Could you please clarify your question? You can also contact our support team on WhatsApp: +91 9037392700";

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -7,7 +7,7 @@
 <section class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center">
     <div class="bg-green-50 border border-green-200 rounded-lg p-8 mb-6">
         <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
-        <h1 class="text-2xl sm:text-3xl font-serif text-brand-dark mb-2">Order Confirmed! 🎉</h1>
+        <h1 class="text-2xl sm:text-3xl font-serif text-brand-dark mb-2">Order Confirmed! ðŸŽ‰</h1>
         <p class="text-gray-600 mb-4">Thank you for your order! We'll ship it soon.</p>
         <p class="text-sm text-gray-500">Order #: <span class="font-semibold">{{ order.order_number }}</span></p>
     </div>
@@ -23,7 +23,7 @@
             {% if order.state %}<p><span class="font-medium">State:</span> {{ order.state }}</p>{% endif %}
             {% if order.pincode %}<p><span class="font-medium">Pincode:</span> {{ order.pincode }}</p>{% endif %}
             <p><span class="font-medium">Payment Method:</span> {{ order.payment_method }}</p>
-            <p><span class="font-medium">Total:</span> ₹{{ "%.2f"|format(order.total_amount) }}</p>
+            <p><span class="font-medium">Total:</span> â‚¹{{ "%.2f"|format(order.total_amount) }}</p>
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -14,7 +14,7 @@
         
         <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p class="text-sm text-gray-600">Order #: <strong class="text-brand-dark">{{ order.order_number }}</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Amount: <strong>₹{{ "%.2f"|format(order.total_amount) }}</strong></p>
+            <p class="text-sm text-gray-600 mt-1">Amount: <strong>â‚¹{{ "%.2f"|format(order.total_amount) }}</strong></p>
         </div>
         
         <div class="flex gap-3 mt-6">

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -10,15 +10,15 @@
             <i class="fas fa-check text-5xl text-green-600 relative z-10"></i>
         </div>
         
-        <h2 class="text-2xl font-serif font-bold text-brand-dark">Payment Successful! 🎉</h2>
+        <h2 class="text-2xl font-serif font-bold text-brand-dark">Payment Successful! ðŸŽ‰</h2>
         <p class="text-gray-500 mt-2">Thank you for your order! Your payment has been confirmed.</p>
         
         <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p class="text-sm text-gray-600">Order #: <strong class="text-brand-dark">{{ order.order_number }}</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Subtotal: <strong>₹{{ "%.2f"|format(order.total_amount - 60) }}</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Shipping: <strong class="text-gray-600">₹60.00</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Amount Paid: <strong class="text-green-600">₹{{ "%.2f"|format(order.total_amount) }}</strong></p>
-            <p class="text-sm text-gray-600 mt-1">Payment Status: <span class="text-green-600 font-semibold">✓ Paid</span></p>
+            <p class="text-sm text-gray-600 mt-1">Subtotal: <strong>â‚¹{{ "%.2f"|format(order.total_amount - 60) }}</strong></p>
+            <p class="text-sm text-gray-600 mt-1">Shipping: <strong class="text-gray-600">â‚¹60.00</strong></p>
+            <p class="text-sm text-gray-600 mt-1">Amount Paid: <strong class="text-green-600">â‚¹{{ "%.2f"|format(order.total_amount) }}</strong></p>
+            <p class="text-sm text-gray-600 mt-1">Payment Status: <span class="text-green-600 font-semibold">âœ“ Paid</span></p>
         </div>
         
         <p class="text-sm text-gray-400 mt-4">A confirmation email has been sent to <strong>{{ order.customer_email }}</strong></p>

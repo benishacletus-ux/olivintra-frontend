@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html" %}
+﻿{% extends "admin/base_admin.html" %}
 
 {% block title %}Products - Olivintra Admin{% endblock %}
 
@@ -42,9 +42,9 @@
                         <div class="text-xs text-gray-500">{{ product.category.name if product.category else 'Uncategorized' }}</div>
                     </td>
                     <td class="px-3 py-4 whitespace-nowrap">
-                        <div class="text-sm font-medium">₹{{ "%.2f"|format(product.price) }}</div>
+                        <div class="text-sm font-medium">â‚¹{{ "%.2f"|format(product.price) }}</div>
                         {% if product.original_price %}
-                        <div class="text-xs text-gray-400 line-through">₹{{ "%.2f"|format(product.original_price) }}</div>
+                        <div class="text-xs text-gray-400 line-through">â‚¹{{ "%.2f"|format(product.original_price) }}</div>
                         {% endif %}
                     </td>
                     <td class="px-3 py-4">
@@ -223,7 +223,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log('📦 Products page loaded successfully');
+console.log('ðŸ“¦ Products page loaded successfully');
 </script>
 
 <style>

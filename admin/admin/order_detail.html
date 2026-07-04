@@ -1,4 +1,4 @@
-{% extends "admin/base_admin.html" %}
+﻿{% extends "admin/base_admin.html" %}
 
 {% block title %}Order #{{ order.order_number }} - Olivintra Admin{% endblock %}
 
@@ -25,14 +25,14 @@
                         <p class="font-medium">{{ item.product_name }}</p>
                         <p class="text-sm text-gray-500">Qty: {{ item.quantity }}</p>
                     </div>
-                    <p class="font-semibold">₹{{ "%.2f"|format(item.price * item.quantity) }}</p>
+                    <p class="font-semibold">â‚¹{{ "%.2f"|format(item.price * item.quantity) }}</p>
                 </div>
                 {% endfor %}
             </div>
             <div class="border-t border-gray-200 pt-4 mt-4">
                 <div class="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span>₹{{ "%.2f"|format(order.total_amount) }}</span>
+                    <span>â‚¹{{ "%.2f"|format(order.total_amount) }}</span>
                 </div>
             </div>
         </div>

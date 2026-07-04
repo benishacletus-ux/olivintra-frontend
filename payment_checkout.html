@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 
 
@@ -19,14 +19,14 @@
                         <p class="font-medium">{{ item.product.name }}</p>
                         <p class="text-sm text-gray-500">Qty: {{ item.quantity }} | Size: {{ item.size }}</p>
                     </div>
-                    <p class="font-medium">₹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
+                    <p class="font-medium">â‚¹{{ "%.2f"|format(item.product.price * item.quantity) }}</p>
                 </div>
                 {% endfor %}
                 
                 <!-- Subtotal -->
                 <div class="flex justify-between pt-2 text-sm border-t border-gray-100">
                     <span class="text-gray-500">Subtotal</span>
-                    <span class="font-medium">₹{{ "%.2f"|format(subtotal) }}</span>
+                    <span class="font-medium">â‚¹{{ "%.2f"|format(subtotal) }}</span>
                 </div>
                 
                 <!-- Shipping -->
@@ -36,7 +36,7 @@
                         {% if subtotal >= 2999 %}
                         <span class="text-green-600 font-medium">Free</span>
                         {% else %}
-                        <span class="font-medium">₹60.00</span>
+                        <span class="font-medium">â‚¹60.00</span>
                         {% endif %}
                     </span>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="flex justify-between pt-3 font-bold text-lg border-t border-gray-200">
                     <span>Total</span>
                     <span class="text-[#4d502c]">
-                        ₹{{ "%.2f"|format(total) }}
+                        â‚¹{{ "%.2f"|format(total) }}
                     </span>
                 </div>
 
@@ -58,7 +58,7 @@
                     </div>
                     <p class="text-xs text-amber-600 mt-1">
                         <i class="fas fa-truck mr-1"></i> 
-                        Add ₹{{ "%.2f"|format(2999 - subtotal) }} more for free shipping
+                        Add â‚¹{{ "%.2f"|format(2999 - subtotal) }} more for free shipping
                     </p>
                 </div>
                 {% else %}
@@ -117,7 +117,7 @@
                 
                 <button type="button" id="payBtn" 
                         class="w-full bg-[#4d502c] text-white py-3.5 rounded-lg hover:bg-[#3d4022] transition font-medium text-lg">
-                    <i class="fas fa-credit-card mr-2"></i> Pay ₹{{ "%.2f"|format(total) }}
+                    <i class="fas fa-credit-card mr-2"></i> Pay â‚¹{{ "%.2f"|format(total) }}
                 </button>
             </form>
             
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'upi': 'Pay with UPI/GPay',
                 'netbanking': 'Pay with NetBanking'
             };
-            payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> ' + methodLabels[selectedMethod] + ' ₹' + grandTotal.toFixed(2);
+            payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> ' + methodLabels[selectedMethod] + ' â‚¹' + grandTotal.toFixed(2);
         });
     });
     
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     modal: {
                         ondismiss: function() {
                             payBtn.disabled = false;
-                            payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> Pay ₹' + grandTotal.toFixed(2);
+                            payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> Pay â‚¹' + grandTotal.toFixed(2);
                         }
                     },
                     handler: function(response) {
@@ -319,14 +319,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 alert('Error: ' + data.error);
                 payBtn.disabled = false;
-                payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> Pay ₹' + grandTotal.toFixed(2);
+                payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> Pay â‚¹' + grandTotal.toFixed(2);
             }
         })
         .catch(function(error) {
             console.error('Error:', error);
             alert('Payment initiation failed. Please try again.');
             payBtn.disabled = false;
-            payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> Pay ₹' + grandTotal.toFixed(2);
+            payBtn.innerHTML = '<i class="fas fa-credit-card mr-2"></i> Pay â‚¹' + grandTotal.toFixed(2);
         });
     });
 });
