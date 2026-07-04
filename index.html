@@ -1038,11 +1038,152 @@
     <!-- SCRIPTS -->
     <!-- ============================================= -->
     <script src="static/js/api.js"></script>
+    
+    <!-- FIXED CHATBOT SCRIPT -->
+    <script>
+        (function() {
+            console.log('🤖 Chatbot initializing...');
+            
+            var chatToggle = document.getElementById('chatbotToggle');
+            var chatWindow = document.getElementById('chatWindow');
+            var closeChat = document.getElementById('closeChat');
+            var chatForm = document.getElementById('chatForm');
+            var chatInput = document.getElementById('chatInput');
+            var chatMessages = document.getElementById('chatMessages');
+            var quickReplies = document.querySelectorAll('.quick-reply');
+            var sendBtn = document.getElementById('sendMessage');
+            
+            if (!chatToggle) {
+                console.error('❌ Chatbot toggle button not found!');
+                return;
+            }
+            
+            console.log('✅ Chatbot button found');
+            
+            var isOpen = false;
+            var isProcessing = false;
+
+            // Toggle chat window
+            chatToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🔄 Chat toggle clicked');
+                isOpen = !isOpen;
+                
+                if (isOpen) {
+                    chatWindow.classList.remove('hidden');
+                    chatInput.focus();
+                    console.log('✅ Chat window opened');
+                } else {
+                    chatWindow.classList.add('hidden');
+                    console.log('✅ Chat window closed');
+                }
+            });
+
+            // Close chat
+            if (closeChat) {
+                closeChat.addEventListener('click', function() {
+                    isOpen = false;
+                    chatWindow.classList.add('hidden');
+                });
+            }
+
+            // Quick replies
+            quickReplies.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var message = this.textContent.trim();
+                    chatInput.value = message;
+                    sendMessage(message);
+                });
+            });
+
+            // Chat form submit
+            if (chatForm) {
+                chatForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var message = chatInput.value.trim();
+                    if (message && !isProcessing) {
+                        sendMessage(message);
+                    }
+                });
+            }
+
+            function sendMessage(message) {
+                if (isProcessing) return;
+                
+                addMessage(message, 'user');
+                chatInput.value = '';
+                isProcessing = true;
+                if (sendBtn) sendBtn.disabled = true;
+                showTyping();
+
+                setTimeout(function() {
+                    hideTyping();
+                    var responses = [
+                        "Thank you for your message! I'll help you with that. 😊",
+                        "Great question! Let me find the best answer for you.",
+                        "I understand. Let me assist you with that.",
+                        "That's a good question! Here's what I can tell you."
+                    ];
+                    addMessage(responses[Math.floor(Math.random() * responses.length)], 'bot');
+                    isProcessing = false;
+                    if (sendBtn) sendBtn.disabled = false;
+                }, 1000);
+            }
+
+            function addMessage(text, sender) {
+                if (!chatMessages) return;
+                
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-start gap-2 ' + (sender === 'user' ? 'flex-row-reverse' : '');
+
+                var avatar = document.createElement('div');
+                avatar.className = 'w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ' + (sender === 'user' ? 'bg-gray-300' : 'bg-[#4d502c]');
+                avatar.innerHTML = sender === 'user' ? 
+                    '<i class="fas fa-user text-white text-sm"></i>' : 
+                    '<i class="fas fa-robot text-white text-sm"></i>';
+
+                var bubble = document.createElement('div');
+                bubble.className = (sender === 'user' ? 'bg-[#4d502c] text-white' : 'bg-white') + ' rounded-lg px-4 py-2 shadow-sm max-w-[85%]';
+                
+                var p = document.createElement('p');
+                p.className = 'text-sm ' + (sender === 'user' ? 'text-white' : 'text-gray-700');
+                p.textContent = text;
+                bubble.appendChild(p);
+
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(bubble);
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showTyping() {
+                if (!chatMessages) return;
+                var typingDiv = document.createElement('div');
+                typingDiv.id = 'typingIndicator';
+                typingDiv.className = 'flex items-start gap-2';
+                typingDiv.innerHTML = '<div class="w-8 h-8 rounded-full bg-[#4d502c] flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-white text-sm"></i></div><div class="typing-indicator"><span></span><span></span><span></span></div>';
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function hideTyping() {
+                var typing = document.getElementById('typingIndicator');
+                if (typing) {
+                    typing.remove();
+                }
+            }
+            
+            console.log('🤖 Chatbot initialized successfully!');
+        })();
+    </script>
+
+    <!-- MAIN PAGE SCRIPT -->
     <script>
         // Mobile Search Toggle
         document.addEventListener('DOMContentLoaded', function() {
-            const searchToggle = document.getElementById('mobileSearchToggle');
-            const searchForm = document.getElementById('mobileSearchForm');
+            var searchToggle = document.getElementById('mobileSearchToggle');
+            var searchForm = document.getElementById('mobileSearchForm');
             
             if (searchToggle && searchForm) {
                 searchToggle.addEventListener('click', function(e) {
@@ -1061,10 +1202,10 @@
 
         // Mobile Menu Functions
         (function() {
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const closeBtn = document.getElementById('closeMenuBtn');
-            const overlay = document.getElementById('menuOverlay');
-            const slideMenu = document.getElementById('slideMenu');
+            var hamburgerBtn = document.getElementById('hamburgerBtn');
+            var closeBtn = document.getElementById('closeMenuBtn');
+            var overlay = document.getElementById('menuOverlay');
+            var slideMenu = document.getElementById('slideMenu');
 
             function openMenu() {
                 if (slideMenu) {
@@ -1104,7 +1245,7 @@
             }
 
             if (slideMenu) {
-                slideMenu.querySelectorAll('a').forEach(link => {
+                slideMenu.querySelectorAll('a').forEach(function(link) {
                     link.addEventListener('click', closeMenu);
                 });
             }
@@ -1117,19 +1258,15 @@
             });
         })();
 
-        // ============================================
-        // CART COUNT
-        // ============================================
+        // Cart Count
         function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            var count = cart.reduce(function(sum, item) { return sum + item.quantity; }, 0);
             document.getElementById('cart-count').textContent = count;
         }
         updateCartCount();
 
-        // ============================================
-        // FAQ TOGGLE
-        // ============================================
+        // FAQ Toggle
         function toggleFAQ(button) {
             var answer = button.nextElementSibling;
             var icon = button.querySelector('i');
@@ -1160,9 +1297,7 @@
             }
         }
 
-        // ============================================
-        // HERO CAROUSEL
-        // ============================================
+        // Hero Carousel
         var currentSlide = 0;
         var totalSlides = 0;
         var carouselTrack = document.getElementById('carouselTrack');
@@ -1170,7 +1305,7 @@
         var autoSlideInterval;
 
         function loadHeroSlides() {
-            const slides = [
+            var slides = [
                 {
                     subtitle: 'Welcome to Olivintra',
                     title: 'Premium <br><span class="italic font-normal">Ethnic Wear</span>',
@@ -1192,34 +1327,19 @@
             totalSlides = slides.length;
             
             carouselTrack.innerHTML = '';
-            slides.forEach((slide, index) => {
-                const slideDiv = document.createElement('div');
+            slides.forEach(function(slide, index) {
+                var slideDiv = document.createElement('div');
                 slideDiv.className = 'min-w-full h-full relative flex-shrink-0';
-                slideDiv.innerHTML = `
-                    <div class="absolute inset-0 bg-black/40 z-10"></div>
-                    <div class="w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('${slide.image}');"></div>
-                    <div class="absolute inset-0 z-20 flex items-center">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                            <div class="max-w-2xl text-white">
-                                <p class="text-xs uppercase tracking-widest font-semibold text-amber-300 mb-2">${slide.subtitle}</p>
-                                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif leading-tight mb-4">${slide.title}</h1>
-                                <p class="text-gray-200 max-w-md text-sm sm:text-base mb-6 leading-relaxed">${slide.description}</p>
-                                <a href="${slide.button_link}" class="inline-block bg-white text-brand-dark text-xs sm:text-sm font-medium uppercase tracking-widest px-6 sm:px-8 py-3 sm:py-4 rounded hover:bg-amber-600 hover:text-white transition">
-                                    ${slide.button_text} <i class="fas fa-arrow-right ml-2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                slideDiv.innerHTML = '<div class="absolute inset-0 bg-black/40 z-10"></div><div class="w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url(' + slide.image + ');"></div><div class="absolute inset-0 z-20 flex items-center"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><div class="max-w-2xl text-white"><p class="text-xs uppercase tracking-widest font-semibold text-amber-300 mb-2">' + slide.subtitle + '</p><h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif leading-tight mb-4">' + slide.title + '</h1><p class="text-gray-200 max-w-md text-sm sm:text-base mb-6 leading-relaxed">' + slide.description + '</p><a href="' + slide.button_link + '" class="inline-block bg-white text-brand-dark text-xs sm:text-sm font-medium uppercase tracking-widest px-6 sm:px-8 py-3 sm:py-4 rounded hover:bg-amber-600 hover:text-white transition">' + slide.button_text + ' <i class="fas fa-arrow-right ml-2"></i></a></div></div></div>';
                 carouselTrack.appendChild(slideDiv);
             });
             
             dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
+            for (var i = 0; i < totalSlides; i++) {
+                var dot = document.createElement('button');
                 dot.className = 'dot' + (i === 0 ? ' active' : '');
                 dot.setAttribute('data-index', i);
-                dot.onclick = function() { goToSlide(i); };
+                dot.onclick = function(index) { return function() { goToSlide(index); }; }(i);
                 dotsContainer.appendChild(dot);
             }
             
@@ -1255,14 +1375,16 @@
             }
         }
 
-        // ============================================
-        // LOAD DATA FROM API
-        // ============================================
+        // Load Data From API
         document.addEventListener('DOMContentLoaded', function() {
             loadHeroSlides();
-            displayProducts('new-arrivals-container', 'new-arrivals', 6);
-            displayProducts('best-sellers-container', 'best-sellers', 6);
-            displayCategories('categoryScroll');
+            if (typeof displayProducts === 'function') {
+                displayProducts('new-arrivals-container', 'new-arrivals', 6);
+                displayProducts('best-sellers-container', 'best-sellers', 6);
+                displayCategories('categoryScroll');
+            } else {
+                console.warn('⚠️ displayProducts function not available. Make sure api.js is loaded.');
+            }
             
             setTimeout(function() {
                 var firstFAQ = document.querySelector('.faq-toggle');
