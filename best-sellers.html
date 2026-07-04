@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers - Olivintra</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Quick utility styles */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: white; border-bottom: 1px solid #e5e0da; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 40px; width: auto; }
+        .nav-menu ul { display: flex; list-style: none; gap: 28px; }
+        .nav-menu a { text-decoration: none; color: #1a1a1a; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+        .nav-menu a:hover { color: #c5a880; }
+        .header-actions { display: flex; gap: 16px; align-items: center; }
+        .header-actions a { color: #1a1a1a; font-size: 18px; position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: #c5a880; color: white; font-size: 10px; border-radius: 50%; padding: 2px 6px; }
+        .footer { background: #1a1a1a; color: #aaa; padding: 48px 0; border-top: 1px solid #333; margin-top: 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        .footer h3 { font-family: 'Playfair Display', serif; color: white; font-size: 20px; margin-bottom: 12px; }
+        .footer h4 { color: white; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul a { color: #aaa; text-decoration: none; font-size: 13px; transition: color 0.3s; }
+        .footer ul a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid #333; margin-top: 30px; padding-top: 20px; text-align: center; font-size: 11px; color: #666; }
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .product-card { background: white; border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        .product-card a { text-decoration: none; color: inherit; }
+        .product-card .image { aspect-ratio: 3/4; background: #f0ece6; background-size: cover; background-position: center; position: relative; }
+        .product-card h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 10px 12px 4px; color: #1a1a1a; }
+        .product-card .price { font-size: 13px; color: #1a1a1a; font-weight: 500; padding: 0 12px 12px; }
+        .loading { text-align: center; padding: 40px; color: #888; font-size: 14px; grid-column: 1 / -1; }
+        .text-brand-dark { color: #1a1a1a; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        @media (max-width: 768px) { .nav-menu { display: none; } .product-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr; gap: 20px; } }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="static/uploads/logo.jpg" alt="Olivintra" class="logo-img">
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="best-sellers.html">Best Sellers</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="mb-6">
+                <h1 class="text-2xl sm:text-3xl font-serif text-brand-dark">Best Sellers</h1>
+                <p class="text-gray-500 text-sm mt-1">Our most popular ethnic wear, loved and trusted by thousands of customers.</p>
+            </div>
+            <div id="best-sellers-container" class="product-grid">
+                <div class="loading">Loading best sellers...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>OLIVINTRA</h3>
+                    <p>Timeless fashion for every moment. Beautifully designed ethnic wear tailored with precision and premium craftsmanship.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="shop.html">All Products</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="best-sellers.html">Best Sellers</a></li>
+                        <li><a href="my-orders.html">My Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Parassala, Kerala, India</p>
+                    <p><a href="tel:+919037392700">+91 90373 92700</a></p>
+                    <p><a href="mailto:olivintra@gmail.com">olivintra@gmail.com</a></p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Olivintra. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts('best-sellers-container', 'best-sellers', null);
+        });
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
+        }
+        updateCartCount();
+    </script>
+</body>
+</html>
